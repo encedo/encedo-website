@@ -1,0 +1,253 @@
+<?php
+function resampimagejpg($forcedwidth, $forcedheight, $sourcefile, $destfile = '') {
+    $fw = $forcedwidth;
+    $fh = $forcedheight;
+	
+    $is = getimagesize( $sourcefile );
+
+    if ( $is[0] > $fw ) {
+        //if( ( $is[0] - $fw ) >= ( $is[1] - $fh ) ) {
+            $iw = $fw;
+            $ih = ( $fw / $is[0] ) * $is[1];
+       // } else {
+        //    $ih = $fh;
+        //    $iw = ( $ih / $is[1] ) * $is[0];
+        //}
+        $t = 1;
+    } else {
+        $iw = $is[0];
+        $ih = $is[1];
+        $t = 2;
+    }
+	if($is['mime'] == 'image/jpeg')
+		$ext = '.jpg';
+	elseif($is['mime'] == 'image/gif')
+		$ext = '.gif';
+	elseif($is['mime'] == 'image/png')
+		$ext = '.png';
+		
+    if ( $t == 1 ) {
+	
+	  if($is['mime'] == 'image/jpeg') {
+         $img_src = imagecreatefromjpeg($sourcefile);
+      } elseif($is['mime'] == 'image/gif') {
+         $img_src = imagecreatefromgif($sourcefile); 
+	  } elseif($is['mime'] == 'image/png') {
+         $img_src = imagecreatefrompng($sourcefile);
+      } else {
+         header('Location: galeria_edycja.php#error');
+      }
+	  
+	   
+	  
+       $img_dst = imagecreatetruecolor( $iw, min($ih, $forcedheight) );
+       imagecopyresampled( $img_dst, $img_src, 0, 0, 0, 0, $iw, $ih, $is[0], $is[1] );
+	   
+	  if(strlen($destfile) < 3) {
+		$destfile = str_replace($ext, '', $sourcefile);
+	  }
+
+	  if($is['mime'] == 'image/jpeg') {
+         imagejpeg($img_dst, $destfile.$ext, 75);
+      } elseif($is['mime'] == 'image/gif') {
+         imagegif($img_dst, $destfile.$ext);
+      } elseif($is['mime'] == 'image/png') {
+         imagepng($img_dst, $destfile.$ext);
+      } 
+	  
+    } elseif ( $t == 2 ) {
+        copy($sourcefile, $destfile.$ext );
+    }
+	$results = array(round($iw), round($ih), $ext);
+	return $results;
+
+}
+
+$dirname = "";
+
+//Use glob function to get the files
+//Note that we have used " * " inside this function. If you want to get only JPEG or PNG use
+//below line and commnent $images variable currently in use
+$images = glob($dirname."*");
+
+//Display image using foreach loop
+$i = 1;
+foreach($images as $image){
+    resampimagejpg(252, 252, $image, '' . $i);
+	$i++;
+}
+
+
+function yiq($r,$g,$b) { return (($r*0.299)+($g*0.587)+($b*0.114)); } 
+
+function bw($file, $dest) {
+
+	 list($width, $height) = getimagesize($file); 
+	 
+	 $is = getimagesize( $file );
+	 $iw = $is[0];
+     $ih = $is[1];
+	 
+	 if($is['mime'] == 'image/jpeg') {
+         $source = imagecreatefromjpeg($file);
+      } elseif($is['mime'] == 'image/gif') {
+         $source = imagecreatefromgif($file); 
+	  } elseif($is['mime'] == 'image/png') {
+         $source = imagecreatefrompng($file);
+      } else {
+         return false;
+      }
+	  
+	$source2 = $source;
+	$dest2 = imagecreatetruecolor($width*2, $height);
+	  
+	 $bwimage = imagecreate($width*2, $height); 
+	 for ($c=0;$c<256;$c++) {
+		$palette[$c] = imagecolorallocate($bwimage,$c,$c,$c);
+	 }
+
+	 for ($y=0;$y<$height;$y++) {
+		 for ($x=0;$x<$width;$x++) {
+			 $rgb = imagecolorat($source,$x,$y);
+			 $r = ($rgb >> 16) & 0xFF;
+			 $g = ($rgb >> 8) & 0xFF;
+			 $b = $rgb & 0xFF;
+
+			 $gs = yiq($r,$g,$b);
+			 imagesetpixel($bwimage,$x,$y,$palette[$gs]);
+		 }
+	 } 
+	
+	imagecopy($dest2, $source2, 0, 0, 0, 0, $width, $height);
+	imagecopy($dest2, $bwimage, $width, 0, 0, 0, $width, $height);
+	imagejpeg($dest2, $dest);
+}
+
+function mergeImages($dest, $images, $maxHeight) {
+
+	$destHandler = imagecreatetruecolor(300, $maxHeight);
+	$where = 0;
+	
+	foreach($images as $file) {
+	  $is = getimagesize($file);
+	  if($is['mime'] == 'image/jpeg') {
+         $source = imagecreatefromjpeg($file);
+      } elseif($is['mime'] == 'image/gif') {
+         $source = imagecreatefromgif($file); 
+	  } elseif($is['mime'] == 'image/png') {
+         $source = imagecreatefrompng($file);
+      } else {
+         return false;
+      }
+	  imagecopy($destHandler, $source, ceil((300-$is[0])/2), $where, 0, 0, $is[0], $is[1]);
+	  $where += $is[1];
+	}
+	imagejpeg($destHandler, $dest);
+}
+
+function frameImage($file, $dest, $height, $kheight) {
+
+	$is = getimagesize($file);
+	if($is['mime'] == 'image/jpeg') {
+         $source = imagecreatefromjpeg($file);
+    } elseif($is['mime'] == 'image/gif') {
+         $source = imagecreatefromgif($file); 
+	} elseif($is['mime'] == 'image/png') {
+         $source = imagecreatefrompng($file);
+    } else {
+         return false;
+    }
+	$border = ceil($is[0]/300);
+	$ratio = 1;
+	
+	if($is[1] != $height) {
+		// obrazek by³ zmniejszony
+		// trzeba dodatkowo policzyæ
+		$ratio = $is[1]/$height;
+		$kheight -= 40;
+	}
+	
+	$im = imagecreatetruecolor($is[0]+$border*2, $is[1]+$border*2);
+	$white = imagecolorallocate($im, 255, 255, 255);
+	imagefill($im, 0, 0, $white);
+	imagecopy($im, $source, $border, $border, 0, 0, $is[0], $is[1]);
+	
+	$wid = $is[0]+$border*2+$border*30;
+	$left = $border+$border*15;
+	
+	$im2 = imagecreatetruecolor($wid, ($kheight*$ratio)+$border*2+$border*30);
+	$black = imagecolorallocate($im2, 0, 0, 0);
+	imagefill($im2, 0, 0, $black);
+	imagecopy($im2, $im, $left, $border+$border*15, 0, 0, $is[0]+$border*2, $is[1]+$border*2);
+	
+	imagejpeg($im2, $dest);
+}
+
+function imagettftextalign($image, $size, $angle, $x, $y, $color, $font, $text, $alignment='L')  { 
+
+    //check width of the text 
+    $bbox = imagettfbbox ($size, $angle, $font, $text); 
+    $textWidth = $bbox[2] - $bbox[0]; 
+    switch ($alignment) { 
+        case "R": 
+            $x -= $textWidth; 
+            break; 
+        case "C": 
+            $x -= $textWidth / 2; 
+            break; 
+    } 
+
+    //write text 
+    imagettftext ($image, $size, $angle, $x, $y, $color, $font, $text); 
+
+ }
+ 
+function imagettfstroketext(&$image, $size, $angle, $x, $y, &$textcolor, &$strokecolor, $fontfile, $text, $px) {
+	for($c1 = ($x-abs($px)); $c1 <= ($x+abs($px)); $c1++)
+        for($c2 = ($y-abs($px)); $c2 <= ($y+abs($px)); $c2++)
+            $bg = imagettftext($image, $size, $angle, $c1, $c2, $strokecolor, $fontfile, $text);
+	return imagettftext($image, $size, $angle, $x, $y, $textcolor, $fontfile, $text);
+}
+
+function textImage($file, $content = array(), $width, $kwidth) {
+
+	$is = getimagesize($file);
+	if($is['mime'] == 'image/jpeg') {
+         $source = imagecreatefromjpeg($file);
+    } elseif($is['mime'] == 'image/gif') {
+         $source = imagecreatefromgif($file); 
+	} elseif($is['mime'] == 'image/png') {
+         $source = imagecreatefrompng($file);
+    } else {
+         return false;
+    }
+	
+	$white = imagecolorallocate($source, 255, 255, 255);
+	$black = imagecolorallocate($source, 0, 0, 0);
+	$ratio = 0.78;
+	$font = '../static/fonts/BebasNeue.ttf';
+	
+	foreach($content as $text) {
+		
+		$bbox = imagettfbbox(ceil($text['size']*$ratio), 0, $font, $text['value']); 
+		$textWidth = $bbox[2] - $bbox[0]; 
+		
+		if($text['align'] == 'right') {
+			$align = 'R';
+			$x = $text['left']+$text['width']-$textWidth;
+		} elseif($text['align'] == 'center') {
+			$align = 'C';
+			$x = $text['left']+ceil(($text['width']-$textWidth)/2);
+		} else {
+			$align = 'L';
+			$x = $text['left'];
+		}
+		
+		//imagettftext($source, ceil($text['size']*$ratio), 0, $x, $text['top']+ceil($text['size']*$ratio)/2+24, $white, $font, $text['value']);
+		imagettfstroketext($source, ceil($text['size']*$ratio), 0, $x, $text['top']+ceil($text['size']*$ratio)+5, $white, $black, $font, $text['value'], 2);
+	}
+	
+	imagejpeg($source, $file);
+}
+
+?>
