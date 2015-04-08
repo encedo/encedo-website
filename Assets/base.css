@@ -531,6 +531,8 @@ form fieldset label.withSimpleBigger input { width: auto; display: inline-block;
 .form-double {  }
 .form-double .left { width: 70%; display: inline-block; margin: 0; padding: 0; }
 .form-double .right { width: 30%; display: inline-block; margin: 0; padding: 0; }
+.imgWrap { max-height: 270px; overflow: hidden; }
+.imgWrap img { max-width: 220px; }
 
 
 
