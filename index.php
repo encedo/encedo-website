@@ -440,7 +440,7 @@
 							<div class="imgWrap">
 								<img src="Assets/img/maciej.jpg" alt="Maciej Kupisiewicz">
 							</div><!-- .imgWrap -->
-							<h4>krzysztof@encedo.com</h4>
+							<h4>maciej@encedo.com</h4>
 							
 							
 						</div><!-- .col-1-1 -->
