@@ -424,36 +424,33 @@
 						<div class="col-1-3 text-centered th-white2">
 							
 							<h4>CEO</h4>
-							<h2>Krzysztof Rutecki</h2>
+							<h2 class="nomargindown">Krzysztof Rutecki</h2>
+							<h4>krzysztof@encedo.com</h4>
 							<div class="imgWrap">
 								<img src="Assets/img/krzysztof.jpg" alt="Krzysztof Rutecki">
 							</div><!-- .imgWrap -->
-							<h4>krzysztof@encedo.com</h4>
-							
-							
+
 						</div><!-- .col-1-1 -->
 						
 						<div class="col-1-3 text-centered th-white2">
 							
 							<h4>CTO</h4>
-							<h2>Maciej Kupisiewicz</h2>
+							<h2 class="nomargindown">Maciej Kupisiewicz</h2>
+							<h4>maciej@encedo.com</h4>
 							<div class="imgWrap">
 								<img src="Assets/img/maciej.jpg" alt="Maciej Kupisiewicz">
 							</div><!-- .imgWrap -->
-							<h4>maciej@encedo.com</h4>
-							
-							
+
 						</div><!-- .col-1-1 -->
 						
 						<div class="col-1-3 text-centered th-white2">
 							
 							<h4>COO</h4>
-							<h2>Remigiusz Rynkowski</h2>
+							<h2 class="nomargindown">Remigiusz Rynkowski</h2>
+							<h4>remigiusz@encedo.com</h4>
 							<div class="imgWrap">
 								<img src="Assets/img/remigiusz.jpg" alt="Remigiusz Rynkowski">
 							</div><!-- .imgWrap -->
-							<h4>remigiusz@encedo.com</h4>
-							
 							
 						</div><!-- .col-1-1 -->
 					</div><!-- .grid -->
