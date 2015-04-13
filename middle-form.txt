@@ -1,5 +1,0 @@
-
-SERVER: {"USER":"www-data","HOME":"\/var\/www","FCGI_ROLE":"RESPONDER","QUERY_STRING":"","REQUEST_METHOD":"GET","CONTENT_TYPE":"","CONTENT_LENGTH":"","SCRIPT_FILENAME":"\/var\/www\/encedo.com\/middle-form.php","SCRIPT_NAME":"\/middle-form.php","REQUEST_URI":"\/middle-form.php","DOCUMENT_URI":"\/middle-form.php","DOCUMENT_ROOT":"\/var\/www\/encedo.com","SERVER_PROTOCOL":"HTTP\/1.1","GATEWAY_INTERFACE":"CGI\/1.1","SERVER_SOFTWARE":"nginx\/1.6.2","REMOTE_ADDR":"173.70.141.168","REMOTE_PORT":"48164","SERVER_ADDR":"162.243.111.82","SERVER_PORT":"80","SERVER_NAME":"encedo.com","REDIRECT_STATUS":"200","HTTP_USER_AGENT":"panscient.com","HTTP_ACCEPT_LANGUAGE":"en","HTTP_ACCEPT":"text\/*, text\/html","HTTP_ACCEPT_ENCODING":"gzip, deflate","HTTP_HOST":"www.encedo.com","HTTP_CONNECTION":"keep-alive","PHP_SELF":"\/middle-form.php","REQUEST_TIME_FLOAT":1427164902.7094,"REQUEST_TIME":1427164902}
-POST: []
-
-
