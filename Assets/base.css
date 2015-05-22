@@ -2102,8 +2102,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#282828', end
   overflow-x: auto;
   background: #fff;
   color: #4d4d4c;
-  padding: 0.5em;
+  padding: 20px;
+  border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; 
   -webkit-text-size-adjust: none;
+  -moz-box-shadow: inset 0 0 9px 3px #eee;
+-webkit-box-shadow: inset 0 0 9px 3px #eee;
+box-shadow: inset 0 0 9px 3px #eee;
 }
 
 .coffeescript .javascript,
