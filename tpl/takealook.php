@@ -19,25 +19,18 @@
 					<div id="takealookContainer" class="grid grid-pad" style="display: none;">
 						<div class="col-1-4 wyswig text-centered">
 							<a href="Assets/img/EncedoKey1.jpg" data-imagelightbox="f" title="Two of the prototypes handmade."><img src="Assets/img/thumbs/EncedoKey_thumb1.jpg" alt="Two of the prototypes handmade."></a>
-							<p>EncedoKey housing is still under development. No render is available.</p>
 						</div><!-- .col-1-1 -->	
 						<div class="col-1-4 wyswig text-centered">
 							<a href="Assets/img/EncedoKey2.jpg" data-imagelightbox="f" title="Two of the prototypes handmade."><img src="Assets/img/thumbs/EncedoKey_thumb2.jpg" alt="Two of the prototypes handmade."></a>
-							<p>Although we can share a few photos of EncedoKey prototypes with you. Enjoy!</p>
 						</div><!-- .col-1-1 -->	
 						<div class="col-1-4 wyswig text-centered">
 							<a href="Assets/img/EncedoKey3.jpg" data-imagelightbox="f" title="One of the prototypes handmade."><img src="Assets/img/thumbs/EncedoKey_thumb3.jpg" alt="One of the prototypes handmade."></a>
-							<h3>Tutaj będzie tylko nagłówek</h3>
 						</div><!-- .col-1-1 -->	
 						<div class="col-1-4 wyswig text-centered">
 							<a href="Assets/img/EncedoKey4.jpg" data-imagelightbox="f" title="One of the prototypes handmade."><img src="Assets/img/thumbs/EncedoKey_thumb4.jpg" alt="One of the prototypes handmade."></a>
-							<h3>Tutaj będzie tylko nagłówek</h3>
-							<p>Although we can share a few photos of EncedoKey prototypes with you. Enjoy!</p>
 						</div><!-- .col-1-1 -->	
 						<div class="col-1-4 wyswig text-centered">
 							<a href="Assets/img/EncedoKey5.jpg" data-imagelightbox="f" title="Two prototypes under testing using RaspberryPI."><img src="Assets/img/thumbs/EncedoKey_thumb5.jpg" alt="Two prototypes under testing using RaspberryPI."></a>
-							<h2>RaspberryPI</h2>
-							<p>Although we can share a few photos of EncedoKey prototypes with you. Enjoy!</p>
 						</div><!-- .col-1-1 -->	
 						<div class="col-1-4 wyswig text-centered">
 							<a href="Assets/img/EncedoKey6.jpg" data-imagelightbox="f" title="Two of the prototypes handmade."><img src="Assets/img/thumbs/EncedoKey_thumb6.jpg" alt="Two of the prototypes handmade."></a>
