@@ -20,7 +20,8 @@
 							<div class="imgWrap">
 								<img src="Assets/img/krzysztof.jpg" alt="Krzysztof Rutecki">
 							</div><!-- .imgWrap -->
-
+							<br>
+							<p class="small" style="font-style: italic;">Engineer, entrepreneur, embedded systems architect, linux geek. Fan of technology and good caffe.</p>
 						</div><!-- .col-1-1 -->
 						
 						<div class="col-1-3 text-centered th-white2">
@@ -32,9 +33,8 @@
 								<img src="Assets/img/maciej.jpg" alt="Maciej Kupisiewicz">
 							</div><!-- .imgWrap -->
 							<br>
-							<p class="small">You know your work is worth a lot! Journalists, scientists and many others have to cooperate with others. Do it responsibly and privately.</p>
-							<p class="small">As a businessman you are good at calculation and comparison. How many assets will you lose if your best competitor gets yours secrets?</p>
-							<p class="small">Probably the biggest group of interest in EncedoKey. Change the way the Internet works with respect to privacy. Be the first to see how easy it is!</p>
+							<p class="small" style="font-style: italic;">Web engineer, entrepreneur, guitar player, minimalist. Fan of clean usability and UX.</p>
+							
 
 						</div><!-- .col-1-1 -->
 						
@@ -46,6 +46,8 @@
 							<div class="imgWrap">
 								<img src="Assets/img/remigiusz.jpg" alt="Remigiusz Rynkowski">
 							</div><!-- .imgWrap -->
+							<br>
+							<p class="small" style="font-style: italic;">None engineer, manager, typically 'go-to man'. Fan of simple world and golf.</p>
 							
 						</div><!-- .col-1-1 -->
 					</div><!-- .grid -->
