@@ -71,7 +71,7 @@
 						<p>We use information saved by cookies. For more information click <a href="http://en.wikipedia.org/wiki/HTTP_cookie">here</a>. You may control cookies using your web browser’s setup.</p>
 					</div><!-- .col-1-4 -->
 					<div class="col-1-5 element text-centered">
-						<p><a href="http://olgroup.pl" target="_blank" title="Web agency for tailored applications."><img src="/Assets/img/img-logotype-small.png" alt="Olgroup Multimedia Maciej Kupisiewicz" height="45"></a></p>
+						<p><a href="http://olgroup.pl" target="_blank" title="Web agency for tailored applications."><img src="http://olgroup.pl/Assets/img-logotype-small.png" alt="Olgroup Multimedia Maciej Kupisiewicz" height="45"></a></p>
 					</div><!-- .col-1-4 -->
 					<div class="col-1-5 element text-centered">
 						<p><a class="icon icon-desktop" title="Strona przystosowana do wyświetlania na dużych monitorach."></a> <a class="icon icon-tablet" title="Strona przystosowana do wyświetlania na tabletach."></a> <a class="icon icon-mobile" title="Strona przystosowana do wyświetlania na urządzeniach mobilnych."></a></p>

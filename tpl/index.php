@@ -66,7 +66,7 @@
 						
 						<div class="col-1-1 text-centered th-white2">
 							<br>
-							<iframe width="100%" height="580" src="https://www.youtube.com/embed/j0SYuzuKYik" frameborder="0" allowfullscreen></iframe>
+							<iframe width="100%" height="560" src="https://www.youtube.com/embed/j0SYuzuKYik" frameborder="0" allowfullscreen></iframe>
 							<br><br><br>
 						</div><!-- .col-1-1 -->
 						
