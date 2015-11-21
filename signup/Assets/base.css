@@ -48,6 +48,7 @@ body.loaded {  }
 
 #APPheader { top: 0px; bottom: 0px; left: 0px; width: 30%; z-index: 3; position: fixed; border-right: 1px solid #51aca7; text-align: right; padding: 0% 2%; height: 100%; display: table; }
 #APPheader .wraping { display: table-cell; vertical-align: middle; }
+#APPheader .wraping img { height: 40px; }
 #APPwrapper { top: 0px; bottom: 0px; left: 33%; width: 70%; z-index: 1; position: absolute; display: table; max-width: 780px; height: 100%; padding-right: 30px; }
 #APPcontent { display: table-cell; vertical-align: middle; overflow: auto; margin-left: 150px; }
 
@@ -55,19 +56,27 @@ body.loaded {  }
 #APPheader h1 a span { position: absolute; top: -200053px; }
 
 #APPmenu { margin: 0px 0px 0px 0px; padding-bottom: 30px; }
-#APPmenu ul { background: #fff; padding: 0px 10px; list-style: none; }
+#APPmenu ul { padding: 0px 10px; list-style: none; }
 #APPmenu ul li { text-align: right; }
-#APPmenu ul li a { display: block; padding: 10px 14px 14px 10px; font-size: 18px; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px; border: 1px solid #fff; }
-#APPmenu ul li a:hover { color: #51aca7; border: 1px solid #ccc; }
-#APPmenu ul li a .icon { color: #aaa; }
-#APPmenu ul li a .icon:before { color: #aaa; }
-#APPmenu ul li a:hover .icon:before { color: #51aca7; }
+#APPmenu ul li a { display: block; padding: 10px 22px 14px 10px; font-size: 18px; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px; color: #eee; }
+#APPmenu ul li a:hover { color: #eee; }
+#APPmenu ul li a .icon { color: #eee; }
+#APPmenu ul li a .icon:before { color: #eee; }
+#APPmenu ul li a:hover .icon:before { color: #eee; }
 #APPmenuHide { display: none; float: right; padding: 10px 30px 0px 10px; margin-right: 10px; background-size: auto 100%; }
 
 body.mid #APPheader, body.small #APPheader { display: block; position: static; width: 100%; border-bottom: 1px solid #51aca7; padding: 0px 0px 0px 0px; box-shadow: 0px 0px 10px 1px rgba(0,198,255,0.1); left: auto; right: auto; top: auto; bottom: auto; }
-body.mid #APPheader .wraping, body.small #APPheader .wraping { display: block; background: #fff; padding: 10px 10px 10px 10px; }
+body.mid #APPheader .wraping, body.small #APPheader .wraping { display: block; background: rgba(54, 151, 142, 0.8) ; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #1e5799 0%, rgba(54, 151, 142, 0.8)  0%, #0C526C 100%, #3d7eaa 100%, #182848 100%, #6e48aa 100%, #6e48aa 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1e5799), color-stop(0%,rgba(54, 151, 142, 0.8) ), color-stop(100%,#0C526C), color-stop(100%,#3d7eaa), color-stop(100%,#182848), color-stop(100%,#6e48aa), color-stop(100%,#6e48aa)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(54, 151, 142, 0.8) ', endColorstr='#6e48aa',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ padding: 10px 10px 10px 10px; }
 body.mid #APPheader h1, body.small #APPheader h1 { float: Left; }
 body.mid #APPheader h1 a, body.small #APPheader h1 a { margin-top: 17px; }
+body.mid #APPheader h1 a img, body.small #APPheader h1 a img { height: 24px; }
 
 body.mid #APPmenu, body.small #APPmenu { clear: both; margin: 0px 0px 0px 0px; -webkit-transition: height 0.53s ease-out; -moz-transition: height 0.53s ease-out; -o-transition: height 0.53s ease-out; transition: height 0.53s ease-out; height: 350px; overflow: hidden; padding-bottom: 0px; }
 body.mid #APPmenu.hide, body.small #APPmenu.hide { height: 0px; display: block; }

@@ -31,7 +31,12 @@
 			<div id="APPheader" class="clearfix filter-gradient blue">
 				
 				<div class="wraping clearfix">
-					<h1><a href="#" class="openActivity" rel="start"><img src="../Assets/img/Rysunek1b.png" alt="EncedoKey" height="40"></a></h1>				
+					<h1><a href="#" class="openActivity" rel="start"><img src="../Assets/img/Rysunek1b.png" alt="EncedoKey"></a></h1>	
+					<div id="APPmenu" class="hide">
+						<ul>
+							<li><a href="https://encedo.com/"><span class="icon icon-left-open-big"></span> back</a></li>
+						</ul>
+					</div>
 				</div><!-- .wraping-->				
 				
 			</div><!-- #APPheader -->
@@ -56,6 +61,14 @@
 									<input type="text" name="pass" id="keyPassphrase" title="Passphrase" placeholder="Passphrase" data-nonempty="true" data-maxlength="64">
 								</label><!-- -otpLabel -->
 								
+								<label for="keyAccount">
+									<span>Account</span>
+									<span class="wrapper">
+										<select name="account" id="keyAccount" title="Account" placeholder="Account">
+										</select>
+									</span><!-- .wrapper -->
+								</label><!-- -otpLabel -->
+								
 								<div class="buttonWrapper">
 									<a href="signup" class="button openActivity" rel="signup"><span><i class="icon icon-plus"></i> Create new account</span></a>
 									<span>or</span>
@@ -74,13 +87,19 @@
 					<div id="signup" class="activity" title="Welcome to EncedoKey!">
 					
 						<h3><span>Create new account</span></h3>
+						<p>All crypto operations are performed inside the device. Keys generation, encryption, decryption or authentication - private keys are always secure.</p>
 						
 						<form action="#" id="signup_form">
 						
 							<fieldset>
+							
+								<label for="keyName">
+									<span>Name and lastname</span>
+									<input type="text" name="name" id="keyName" title="Name and lastname" placeholder="Name and lastname" data-nonempty="true" data-maxlength="64">
+								</label><!-- -otpLabel -->
 						
 								<label for="keyLabel">
-									<span>Username</span>
+									<span>Username (login)</span>
 									<input type="text" name="username" id="keyLabel" title="Username" placeholder="Username" data-nonempty="true" data-maxlength="64">
 								</label><!-- -otpLabel -->
 								
