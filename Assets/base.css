@@ -273,8 +273,8 @@ body.small .grid-nopado20 { padding: 0px 0 0px 0px; margin: 0px; }
 .menu li:first-child a { border-left: 0; }
 .menu .logotype { float: left; padding: 0px; width: 157px; margin: 10px -157px 6px 16px; font-size: 24px; background: url('badcruiser_logo.png') no-repeat center left; background-size: contain; height: 25px; }
 .menu .logotype img { height: 40px; }
-.menu.onscreen {  }
-.menu.outscreen { opacity: 1; -moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; filter: alpha(opacity = 100); }
+.menu.onscreen { top: -50px; }
+.menu.outscreen { top: 0px; opacity: 1; -moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; filter: alpha(opacity = 100); }
 .menu .menuToggle, .menu .menuClose { display: none; color: #fff; padding: 4px 10px; cursor: pointer; }
 
 body.mid .menu { text-align: right; font-size: 14px; }

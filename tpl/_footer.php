@@ -64,6 +64,9 @@
 					<div class="col-1-3 element">
 						<h3>Get in Touch</h3>
 						<p>Do not hesitate to contact us. We will respond and answer any questions you still have.</p>
+						<p>
+							<a href="./signup/index.html" class="icon icon-lock-1" title="Encedo Account">Sign in to Encedo Account</a>
+						</p>
 					</div><!-- .col-1-4 -->
 				</div><!-- grid --><br><br>
 				<div class="grid grid-pad">
