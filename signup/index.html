@@ -75,7 +75,7 @@
 									<a href="#" class="button makeAction" rel="signin_submit"><span>Sign in <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
-								<input type="hidden" name="apikey" value="d89-asn329-d9-8s9anda9dna-r343edsds">
+								<input type="hidden" name="descr" value="eauth-encedo.com">
 								<input type="submit" name="submit" class="index" value="submit">
 							
 							</fieldset>	
@@ -128,6 +128,11 @@
 						
 					</div><!-- .activity -->
 					
+					<div id="welcome" class="activity">
+					
+						<h2><span><i class="icon icon-ok"></i> Welcome :)</span></h2>
+						
+					</div><!-- #loadingEncedo -->
 					
 					<div id="loadingEncedo" class="activity">
 					
@@ -214,7 +219,11 @@
 				enc.register('signin_submit', function(){
 					var pack = signin_form.serializeObject();
 					if(pack) {
-						
+						enc.sendToEncedo('manage', function(status, res){
+							console.log(res);
+							notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
+							
+						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': pack.id });
 					}
 				});
 				

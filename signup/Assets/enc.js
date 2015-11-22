@@ -291,8 +291,7 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 		
 		app.sendToEncedo = function(url, func, method, arg, givenObj, timeoutA) {
 		
-			if(app.location == 'localhost') var t = 'localhost.encedo.com';
-			else t = app.location;
+			t = 'encedokey.com';
 		
 			if(url.substr(0,4) !== 'http') {
 				url = (sll ? 'https' : 'http') + '://'+t+':' + '/' + url;
@@ -560,7 +559,7 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 	$.fn.encedoApp.defaults = {
 		'start': 'start',
 		'setupPage': 'setup',
-		'location': 'my.encedo.com'
+		'location': 'encedokey.com'
 	}
 	
 	$.fn.collection = function(settings) {
