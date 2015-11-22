@@ -119,7 +119,7 @@
 									<a href="#" class="button generate makeAction" rel="signup_submit"><span>Create new user <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
-								<input type="hidden" name="apikey" value="d89-asn329-d9-8s9anda9dna-r343edsds">
+								<input type="hidden" name="id" value="eauth-encedo.com">
 								<input type="submit" name="submit" class="index" value="submit">
 							
 							</fieldset>
@@ -219,10 +219,11 @@
 				enc.register('signin_submit', function(){
 					var pack = signin_form.serializeObject();
 					if(pack) {
-						enc.sendToEncedo('manage', function(status, res){
-							console.log(res);
-							notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
-							
+						enc.api('api/manage', function(status, res) { 
+							if(status == 'success' && res) {
+								console.log(res);
+								notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
+							}
 						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': pack.id });
 					}
 				});
@@ -230,7 +231,12 @@
 				enc.register('signup_submit', function(){
 					var pack = signup_form.serializeObject();
 					if(pack) {
-						
+						enc.api('api/manage', function(status, res) { 
+							if(status == 'success' && res) {
+								console.log(res);
+								notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
+							}
+						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': pack.id });
 					}
 				});
 			
