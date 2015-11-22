@@ -34,7 +34,7 @@
 					<h1><a href="#" class="openActivity" rel="start"><img src="../Assets/img/Rysunek1b.png" alt="EncedoKey"></a></h1>	
 					<div id="APPmenu" class="hide">
 						<ul>
-							<li><a href="https://encedo.com/"><span class="icon icon-left-open-big"></span> back</a></li>
+							<li><a href="https://encedo.com/"><span class="icon icon-left-open-big"></span> back to homepage</a></li>
 						</ul>
 					</div>
 				</div><!-- .wraping-->				
@@ -213,8 +213,31 @@
 			// creating new action connected to activity
 			(function(enc){
 			
+				var siteID = 'eauth-encedo.com';
+			
 				var signin_form = $('#signin_form');
 				var signup_form = $('#signup_form');
+				var keyAccount = $('#keyAccount');
+				
+				enc.register('start', function(){
+					enc.api('api/manage', function(status, res) { 
+						if(status == 'success' && res) {
+							if(res.items.length > 0) {
+								if(res.items.length > 1) {
+								var optStr = '';
+								$.each(res.items, function(it, el){
+									optStr += '<option value="'+el.pubkey+'">'+el.email+'</option>';
+								});
+								keyAccount.html(optStr);
+								} else {
+									keyAccount.html('<option value="'+res.items[0].pubkey+'" selected="selected">'+res.items[0].email+'</option>');
+								}
+								
+							}
+						}
+					//}, 'GET',  {"list": {"filter": {"descr": siteID}}});
+					}, 'GET');
+				});
 			
 				enc.register('signin_submit', function(){
 					var pack = signin_form.serializeObject();
@@ -224,7 +247,7 @@
 								console.log(res);
 								notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
 							}
-						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': pack.id });
+						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': siteID });
 					}
 				});
 				
@@ -236,7 +259,7 @@
 								console.log(res);
 								notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
 							}
-						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': pack.id });
+						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': siteID });
 					}
 				});
 			
