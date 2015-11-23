@@ -1,11 +1,18 @@
 <?php
+
+// Getting config file
+require_once '/var/www/encedo_config.php';
 date_default_timezone_set('Europe/Warsaw');
+
+// Creating a new session
 session_start();
 session_regenerate_id();
-require_once '/var/www/encedo_config.php';
+
+// Creating encedokey_auth token
 $srv_secret = openssl_random_pseudo_bytes(32);
 $srv_form_challange = curve25519_public($srv_secret);
 $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_secret);
+
 ?><!DOCTYPE html>
 <html lang="pl">
 	<head>
@@ -83,6 +90,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_s
 									<a href="#" class="button makeAction" rel="signin_submit"><span>Sign in <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
+								<input type="hidden" name="srv_form_challenge" value="<?php echo $srv_form_challange; ?>">
 								<input type="hidden" name="descr" value="eauth-encedo.com">
 								<input type="submit" name="submit" class="index" value="submit">
 							
@@ -249,12 +257,25 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_s
 				enc.register('signin_submit', function(){
 					var pack = signin_form.serializeObject();
 					if(pack) {
-						enc.api('api/manage', function(status, res) { 
-							if(status == 'success' && res) {
-								console.log(res);
-								notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
-							}
-						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': siteID });
+						$.ajax({
+							type: 'GET',
+							url: 'signin.php',
+							dataType: 'json',
+							contentType: 'application/json; charset=utf-8',
+							data: JSON.stringify(pack),
+							
+							success: function (res) {	
+								if(res.ok == 1) {
+									notify('You have been successfully logged in :)');
+									enc.page('welcome');
+								}
+							}, 
+							
+							error: function(x, t, m) {
+								
+							},
+							timeout: (timeoutA ? timeoutA : 5800)
+						});
 					}
 				});
 				
