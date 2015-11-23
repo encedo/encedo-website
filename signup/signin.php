@@ -19,6 +19,8 @@ $tmp_secret = curve25519_shared($lookup_session_private, base64_decode($input["l
 $new_auth = curve25519_shared($tmp_secret, base64_decode($input["id_pub"]));
 
 if ($new_auth === base64_decode($input["auth_data"])) {
+	//$user = mysql_query('SELECT * FROM `users` WHERE `email` = \''.mysql_real_escape_string($email).'\' ');
+	//$_SESSION['user'] = mysql_fetch_assoc($user);
 	$result['ok'] = 1;
 } else {
 	$result['ok'] = -1;

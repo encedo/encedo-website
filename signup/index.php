@@ -90,7 +90,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_s
 									<a href="#" class="button makeAction" rel="signin_submit"><span>Sign in <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
-								<input type="hidden" name="srv_form_challenge" value="<?php echo $srv_form_challange; ?>">
+								<input type="hidden" name="srv_form_challenge" value="<?php echo base64_encode($srv_form_challange); ?>">
 								<input type="hidden" name="descr" value="eauth-encedo.com">
 								<input type="submit" name="submit" class="index" value="submit">
 							
