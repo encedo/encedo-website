@@ -68,11 +68,6 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 						<form action="#" id="signin_form">
 						
 							<fieldset>
-						
-								<label for="keyPassphrase">
-									<span>Passphrase</span>
-									<input type="text" name="pass" id="keyPassphrase" title="Passphrase" placeholder="Passphrase" data-nonempty="true" data-maxlength="64">
-								</label><!-- -otpLabel -->
 								
 								<label for="keyAccount">
 									<span>Account</span>
@@ -120,11 +115,6 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 								<label for="keyEmail">
 									<span>Email address</span>
 									<input type="text" name="email" id="keyEmail" title="Email address" placeholder="Email address" data-nonempty="true" data-maxlength="64">
-								</label><!-- -otpLabel -->
-								
-								<label for="keyPassphrase2">
-									<span>Passphrase</span>
-									<input type="text" name="pass" id="keyPassphrase2" title="Passphrase" placeholder="Passphrase" data-nonempty="true" data-maxlength="64">
 								</label><!-- -otpLabel -->
 								
 								<div class="buttonWrapper">
