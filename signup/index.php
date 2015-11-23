@@ -225,7 +225,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 				
 				function checkIfEncedo(timeout) {
 					setTimeout( function() { 
-						app.api('http://'+app.location+'/api/info', function(status, res) {
+						enc.api('http://'+app.location+'/api/info', function(status, res) {
 							if('success' == status) {
 								signin_submit_label.removeClass('noncta');
 								signin_submit_label.text('Sign in with Encedo');
