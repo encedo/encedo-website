@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+<?php
+date_default_timezone_set('Europe/Warsaw');
+session_start();
+session_regenerate_id();
+require_once '/var/www/encedo_config.php';
+$srv_secret = openssl_random_pseudo_bytes(32);
+$srv_form_challange = curve25519_public($srv_secret);
+$_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_secret);
+?><!DOCTYPE html>
 <html lang="pl">
 	<head>
 		<title>EncedoKey Administration Panel</title>
