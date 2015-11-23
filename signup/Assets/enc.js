@@ -327,62 +327,6 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 			app.setStatus(status);
 			middleware = middle;
 			sll = issll;
-			setTimeout( function() { app.connect(func); } , 2000);
-		}
-		
-		app.connectMiddleware = function(func) {
-		
-			app.setStatus('offline');
-			app.api('https://'+app.location+'/api/info', function(status, res) {
-				if('success' == status) setPoint('online sll', res, true, func);
-				else {
-					app.api('http://'+app.location+'/api/info', function(status, res) {
-						if('success' == status) setPoint('online nosll', res, false, func);
-						else {
-							app.api('http://'+app.location+'/api/info', function(status, res) {
-								if('success' == status) setPoint('online nosll', res, false, func);
-								else {
-									app.api('https://'+app.location+'/api/info', function(status, res) {
-										if('success' == status) setPoint('online sll', res, true, func);
-									}, 'GET');
-								}
-							}, 'GET');
-						}
-					}, 'GET');
-				}
-			}, 'GET');
-			
-		}		
-		
-		// encedo connection
-		app.connect = function(func) {
-		
-			if(app.location == 'localhost') var t = 'localhost.encedo.com';
-			else t = app.location;
-			
-			$.ajax({
-				type: "GET",
-				url: (sll ? 'https' : 'http') + '://'+t+':/api/info',
-				dataType: 'json',
-				contentType: 'application/json; charset=utf-8',
-				
-				success: function (res) {	
-					app.encedoInfo = res;
-					app.setStatus('online with encedo');
-					ownerDOM.text(res.owner);
-					// ustawienie zegara
-					app.api('api/time/' + Math.floor((new Date).getTime()/1000), function(status, res) {
-						if(func) func();
-					});
-					
-					if(waitFor) app.page(waitFor);
-				}, 
-				error: function(x, t, m) {
-					if(t === "timeout") console.log("got timeout");
-					app.setStatus('offline');
-				},
-				timeout: 700
-			});
 		}
 		
 		app.time = function() {
@@ -527,9 +471,6 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 		
 		// creating UI running elements
 		versionDOM.html(app.version);
-		
-		// connecting to Middleware
-		app.connectMiddleware();
 		
 		// opening default page at start
 		setTimeout( function() { 

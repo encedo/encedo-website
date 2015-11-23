@@ -1,17 +1,15 @@
 <?php
 
-// Getting config file
+// Getting init file
 require_once '/var/www/encedo_config.php';
-date_default_timezone_set('Europe/Warsaw');
 
 // Creating a new session
-session_start();
 session_regenerate_id();
 
 // Creating encedokey_auth token
 $srv_secret = openssl_random_pseudo_bytes(32);
 $srv_form_challange = curve25519_public($srv_secret);
-$_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_secret);
+$_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_secret);
 
 ?><!DOCTYPE html>
 <html lang="pl">
@@ -79,7 +77,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_s
 								<label for="keyAccount">
 									<span>Account</span>
 									<span class="wrapper">
-										<select name="account" id="keyAccount" title="Account" placeholder="Account">
+										<select name="id_pub" id="keyAccount" title="Account" placeholder="Account">
 										</select>
 									</span><!-- .wrapper -->
 								</label><!-- -otpLabel -->
@@ -87,10 +85,10 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_s
 								<div class="buttonWrapper">
 									<a href="signup" class="button openActivity" rel="signup"><span><i class="icon icon-plus"></i> Create new account</span></a>
 									<span>or</span>
-									<a href="#" class="button makeAction" rel="signin_submit"><span>Sign in <i class="icon icon-right-open-big"></i></span></a>
+									<a href="#" class="button noncta makeAction" rel="signin_submit"><span><span id="signin_submit_label">No Encedo</span> <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
-								<input type="hidden" name="srv_form_challenge" value="<?php echo base64_encode($srv_form_challange); ?>">
+								<input type="hidden" name="remote_pub" value="<?php echo base64_encode($srv_form_challenge); ?>">
 								<input type="hidden" name="descr" value="eauth-encedo.com">
 								<input type="submit" name="submit" class="index" value="submit">
 							
@@ -230,10 +228,25 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_s
 			(function(enc){
 			
 				var siteID = 'eauth-encedo.com';
-			
 				var signin_form = $('#signin_form');
 				var signup_form = $('#signup_form');
 				var keyAccount = $('#keyAccount');
+				var signin_submit_label = $('#signin_submit_label');
+				
+				function checkIfEncedo(timeout) {
+					setTimeout( function() { 
+						app.api('http://'+app.location+'/api/info', function(status, res) {
+							if('success' == status) {
+								signin_submit_label.removeClass('noncta');
+								signin_submit_label.text('Sign in with Encedo');
+							} else {
+								checkIfEncedo(2000);
+							}
+						}, 'GET');
+					} , timeout);
+				}
+				
+				checkIfEncedo(10);
 				
 				enc.register('start', function(){
 					enc.api('api/manage', function(status, res) { 
@@ -263,17 +276,13 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_s
 							dataType: 'json',
 							contentType: 'application/json; charset=utf-8',
 							data: JSON.stringify(pack),
-							
 							success: function (res) {	
 								if(res.ok == 1) {
 									notify('You have been successfully logged in :)');
 									enc.page('welcome');
 								}
 							}, 
-							
-							error: function(x, t, m) {
-								
-							},
+							error: function(x, t, m) {},
 							timeout: (timeoutA ? timeoutA : 5800)
 						});
 					}
@@ -284,8 +293,23 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challange) => $srv_s
 					if(pack) {
 						enc.api('api/manage', function(status, res) { 
 							if(status == 'success' && res) {
-								console.log(res);
-								notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
+								
+								$.ajax({
+									type: 'GET',
+									url: 'signup.php',
+									dataType: 'json',
+									contentType: 'application/json; charset=utf-8',
+									data: JSON.stringify(pack),
+									success: function (res) {	
+										if(res.ok == 1) {
+											notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
+											enc.page('start');
+										}
+									}, 
+									error: function(x, t, m) {},
+									timeout: (timeoutA ? timeoutA : 5800)
+								});
+
 							}
 						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': siteID });
 					}

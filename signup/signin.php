@@ -1,11 +1,7 @@
 <?php
 
-// Getting config file
+// Getting init file
 require_once '/var/www/encedo_config.php';
-date_default_timezone_set('Europe/Warsaw');
-
-// Creating a session connection
-session_start();
 
 // Getting information from GET
 $input = json_decode(file_get_contents('php://input'), true);
