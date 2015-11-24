@@ -281,7 +281,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 									}
 								}, 
 								error: function(x, t, m) {},
-								timeout: (timeoutA ? timeoutA : 5800)
+								timeout: 5800
 							});
 						}
 					} else {
@@ -309,7 +309,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 											}
 										}, 
 										error: function(x, t, m) {},
-										timeout: (timeoutA ? timeoutA : 5800)
+										timeout: 5800
 									});
 
 								}
