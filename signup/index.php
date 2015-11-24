@@ -9,7 +9,7 @@ session_regenerate_id(true);
 
 // Creating encedokey_auth token
 $srv_secret = openssl_random_pseudo_bytes(32);
-$srv_form_challange = curve25519_public($srv_secret);
+$srv_form_challenge = curve25519_public($srv_secret);
 $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_secret);
 
 ?><!DOCTYPE html>
