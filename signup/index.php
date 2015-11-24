@@ -231,8 +231,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 					setTimeout( function() { 
 						enc.api('http://encedokey.com/api/info', function(status, res) {
 							if('success' == status) {
-								
-								
+
 								enc.api('api/manage', function(status, res) { 
 									if(status == 'success' && res) {
 										if(res.items.length > 0) {
@@ -254,14 +253,17 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 										} else {
 											signin_submit_button.addClass('noaccount');
 											signin_submit_label.text('You do not have an account');
-											signup_submit_button.removeClass('noncta');
-											signup_submit_label.text('Create new Account with EncedoKey');
 										}
 									}
 								}, 'POST',  {"list": {"filter": {"descr": '+'+siteID}}});
+								
+								signup_submit_button.removeClass('noncta');
+								signup_submit_label.text('Create new Account with EncedoKey');
+							
 							} else {
 								checkIfEncedo(2000);
 							}
+											
 						}, 'GET');
 					} , timeout);
 				}
