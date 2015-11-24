@@ -3,6 +3,9 @@
 // Getting init file
 require_once '/var/www/encedo_config.php';
 
+$link = @mysql_connect(DB_HOST, DB_USER, DB_PASSWORD);
+$select = @mysql_select_db(DB_DATABASE);
+
 // Getting information from GET
 $input = json_decode(file_get_contents('php://input'), true);
 $result = array('input' => $input);
