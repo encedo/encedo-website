@@ -296,6 +296,8 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 							enc.api('api/manage', function(status, res) { 
 								if(status == 'success' && res) {
 									
+									pack.pubkey = res.pubkey;
+									
 									$.ajax({
 										type: 'GET',
 										url: 'signup.php',

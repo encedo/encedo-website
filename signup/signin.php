@@ -5,7 +5,7 @@ require_once '/var/www/encedo_config.php';
 
 // Getting information from GET
 $input = json_decode(file_get_contents('php://input'), true);
-$result = array();
+$result = array('input' => $input);
 
 $session_data = $_SESSION["encedokey_auth"];
 $lookup_session_private = $session_data[$input["remote_pub"]];
@@ -19,6 +19,7 @@ if ($new_auth === base64_decode($input["auth_data"])) {
 	//$_SESSION['user'] = mysql_fetch_assoc($user);
 	$result['ok'] = 1;
 } else {
+	$result['error'] = mysql_error;
 	$result['ok'] = -1;
 }
 
