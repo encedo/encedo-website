@@ -69,7 +69,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 						
 							<fieldset>
 								
-								<label for="keyAccount">
+								<label for="keyAccount" class="index" id="keyAccountLabel">
 									<span>Account</span>
 									<span class="wrapper">
 										<select name="id_pub" id="keyAccount" title="Account" placeholder="Account">
@@ -221,6 +221,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 				var signin_form = $('#signin_form');
 				var signup_form = $('#signup_form');
 				var keyAccount = $('#keyAccount');
+				var keyAccountLabel = $('#keyAccountLabel');
 				var signin_submit_label = $('#signin_submit_label');
 				
 				function checkIfEncedo(timeout) {
@@ -243,11 +244,12 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 						if(status == 'success' && res) {
 							if(res.items.length > 0) {
 								if(res.items.length > 1) {
-								var optStr = '';
-								$.each(res.items, function(it, el){
-									optStr += '<option value="'+el.pubkey+'">'+el.email+'</option>';
-								});
-								keyAccount.html(optStr);
+									var optStr = '';
+									$.each(res.items, function(it, el){
+										optStr += '<option value="'+el.pubkey+'">'+el.email+'</option>';
+									});
+									keyAccount.html(optStr);
+									keyAccountLabel.removeClass('index');
 								} else {
 									keyAccount.html('<option value="'+res.items[0].pubkey+'" selected="selected">'+res.items[0].email+'</option>');
 								}
