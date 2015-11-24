@@ -120,7 +120,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 								<div class="buttonWrapper">
 									<a href="#" class="button noncta openActivity" rel="start"><span><i class="icon icon-left-open-big"></i> back</span></a>
 									<span>or</span>
-									<a href="#" class="button generate makeAction" rel="signup_submit"><span>Create new user <i class="icon icon-right-open-big"></i></span></a>
+									<a href="#" class="button noncta generate makeAction" rel="signup_submit" id="signup_submit_button"><span><span id="signup_submit_label">Plug Encedo in to create new user</span> <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
 								<input type="hidden" name="id" value="eauth-encedo.com">
@@ -224,13 +224,17 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 				var keyAccountLabel = $('#keyAccountLabel');
 				var signin_submit_label = $('#signin_submit_label');
 				var signin_submit_button = $('#signin_submit_button');
+				var signup_submit_label = $('#signup_submit_label');
+				var signup_submit_button = $('#signup_submit_button');
 				
 				function checkIfEncedo(timeout) {
 					setTimeout( function() { 
 						enc.api('http://encedokey.com/api/info', function(status, res) {
 							if('success' == status) {
 								signin_submit_button.removeClass('noncta');
+								signup_submit_button.removeClass('noncta');
 								signin_submit_label.text('Sign in with Encedo');
+								signup_submit_label.text('Create new Account with EncedoKey');
 							} else {
 								checkIfEncedo(2000);
 							}
@@ -281,36 +285,41 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 							});
 						}
 					} else {
-						notify('You have to plug Encedo into your device before continue!', 'attention');
+						notify('You have to plug Encedo into your device before going further! Do it now :) Do it!', 'attention');
 					}
 				});
 				
 				enc.register('signup_submit', function(){
-					var pack = signup_form.serializeObject();
-					if(pack) {
-						enc.api('api/manage', function(status, res) { 
-							if(status == 'success' && res) {
-								
-								$.ajax({
-									type: 'GET',
-									url: 'signup.php',
-									dataType: 'json',
-									contentType: 'application/json; charset=utf-8',
-									data: JSON.stringify(pack),
-									success: function (res) {	
-										if(res.ok == 1) {
-											notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
-											enc.page('start');
-										}
-									}, 
-									error: function(x, t, m) {},
-									timeout: (timeoutA ? timeoutA : 5800)
-								});
+					if(!signup_submit_button.hasClass('noncta')) {
+						var pack = signup_form.serializeObject();
+						if(pack) {
+							enc.api('api/manage', function(status, res) { 
+								if(status == 'success' && res) {
+									
+									$.ajax({
+										type: 'GET',
+										url: 'signup.php',
+										dataType: 'json',
+										contentType: 'application/json; charset=utf-8',
+										data: JSON.stringify(pack),
+										success: function (res) {	
+											if(res.ok == 1) {
+												notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
+												enc.page('start');
+											}
+										}, 
+										error: function(x, t, m) {},
+										timeout: (timeoutA ? timeoutA : 5800)
+									});
 
-							}
-						}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': siteID });
+								}
+							}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': siteID });
+						}
+					} else { 
+						notify('You have to plug Encedo into your device before going further! Do it now :) Do it!', 'attention');
 					}
 				});
+				
 			
 			})( encedo );
 			
