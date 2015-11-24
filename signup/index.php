@@ -325,8 +325,34 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 										success: function (res) {	
 											if(res.ok == 1) {
 												notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
-												enc.page('start');
-												signup_form[0].reset();
+												enc.api('api/manage', function(status, res) { 
+													if(status == 'success' && res) {
+														if(res.items.length > 0) {
+															if(res.items.length > 1) {
+																var optStr = '';
+																$.each(res.items, function(it, el){
+																	optStr += '<option value="'+el.pubkey+'">'+el.email+'</option>';
+																});
+																keyAccount.html(optStr);
+																keyAccountLabel.removeClass('index');
+															} else {
+																keyAccount.html('<option value="'+res.items[0].pubkey+'" selected="selected">'+res.items[0].email+'</option>');
+															}
+															
+															signin_submit_button.removeClass('noncta');
+															signin_submit_label.text('Sign in with Encedo');
+															
+															
+														} else {
+															signin_submit_button.addClass('noaccount');
+															signin_submit_label.text('You do not have an account');
+														}
+														
+														enc.page('start');
+														signup_form[0].reset();
+													}
+												}, 'POST',  {"list": {"filter": {"descr": '+'+siteID}}});
+												
 											}
 										}, 
 										error: function(x, t, m) {},
