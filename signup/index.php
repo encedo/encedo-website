@@ -269,7 +269,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 						var pack = signin_form.serializeObject();
 						if(pack) {
 							$.ajax({
-								type: 'GET',
+								type: 'POST',
 								url: 'signin.php',
 								dataType: 'json',
 								contentType: 'application/json; charset=utf-8',
@@ -299,7 +299,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 									pack.pubkey = res.pubkey;
 									
 									$.ajax({
-										type: 'GET',
+										type: 'POST',
 										url: 'signup.php',
 										dataType: 'json',
 										contentType: 'application/json; charset=utf-8',
