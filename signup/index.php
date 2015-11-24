@@ -80,7 +80,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 								<div class="buttonWrapper">
 									<a href="signup" class="button openActivity" rel="signup"><span><i class="icon icon-plus"></i> Create new account</span></a>
 									<span>or</span>
-									<a href="#" class="button noncta makeAction" rel="signin_submit"><span><span id="signin_submit_label">No Encedo</span> <i class="icon icon-right-open-big"></i></span></a>
+									<a href="#" class="button noncta makeAction" rel="signin_submit" id="signin_submit_button"><span><span id="signin_submit_label">Plug Encedo in to log in</span> <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
 								<input type="hidden" name="remote_pub" value="<?php echo base64_encode($srv_form_challenge); ?>">
@@ -223,12 +223,13 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 				var keyAccount = $('#keyAccount');
 				var keyAccountLabel = $('#keyAccountLabel');
 				var signin_submit_label = $('#signin_submit_label');
+				var signin_submit_button = $('#signin_submit_button');
 				
 				function checkIfEncedo(timeout) {
 					setTimeout( function() { 
 						enc.api('http://encedokey.com/api/info', function(status, res) {
 							if('success' == status) {
-								signin_submit_label.removeClass('noncta');
+								signin_submit_button.removeClass('noncta');
 								signin_submit_label.text('Sign in with Encedo');
 							} else {
 								checkIfEncedo(2000);
@@ -260,23 +261,27 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 				});
 			
 				enc.register('signin_submit', function(){
-					var pack = signin_form.serializeObject();
-					if(pack) {
-						$.ajax({
-							type: 'GET',
-							url: 'signin.php',
-							dataType: 'json',
-							contentType: 'application/json; charset=utf-8',
-							data: JSON.stringify(pack),
-							success: function (res) {	
-								if(res.ok == 1) {
-									notify('You have been successfully logged in :)');
-									enc.page('welcome');
-								}
-							}, 
-							error: function(x, t, m) {},
-							timeout: (timeoutA ? timeoutA : 5800)
-						});
+					if(!signin_submit_button.hasClass('noncta')) {
+						var pack = signin_form.serializeObject();
+						if(pack) {
+							$.ajax({
+								type: 'GET',
+								url: 'signin.php',
+								dataType: 'json',
+								contentType: 'application/json; charset=utf-8',
+								data: JSON.stringify(pack),
+								success: function (res) {	
+									if(res.ok == 1) {
+										notify('You have been successfully logged in :)');
+										enc.page('welcome');
+									}
+								}, 
+								error: function(x, t, m) {},
+								timeout: (timeoutA ? timeoutA : 5800)
+							});
+						}
+					} else {
+						notify('You have to plug Encedo into your device before continue!', 'attention');
 					}
 				});
 				
