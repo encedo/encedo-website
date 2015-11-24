@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+session_start();
 
 // Getting init file
 require_once '/var/www/encedo_config.php';
@@ -19,8 +20,9 @@ $tmp_secret = curve25519_shared($lookup_session_private, base64_decode($input["l
 $new_auth = curve25519_shared($tmp_secret, base64_decode($input["id_pub"]));
 
 if ($new_auth === base64_decode($input["auth_data"])) {
-	//$user = mysql_query('SELECT * FROM `users` WHERE `email` = \''.mysql_real_escape_string($email).'\' ');
-	//$_SESSION['user'] = mysql_fetch_assoc($user);
+	$user = mysql_query('SELECT * FROM `users` WHERE `pubkey` = \''.mysql_real_escape_string($input["id_pub"]).'\' ');
+	$_SESSION['user'] = mysql_fetch_assoc($user);
+	$result['user'] = $_SESSION['user'];
 	$result['ok'] = 1;
 } else {
 	$result['error'] = mysql_error();

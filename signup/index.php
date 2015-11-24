@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 // Getting init file
 require_once '/var/www/encedo_config.php';
@@ -308,6 +309,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 											if(res.ok == 1) {
 												notify('You have been successfully registered as an new user. Welcome to Encedo Account :)');
 												enc.page('start');
+												signup_form[0].reset();
 											}
 										}, 
 										error: function(x, t, m) {},
