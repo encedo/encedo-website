@@ -72,7 +72,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 								<label for="keyAccount" class="index" id="keyAccountLabel">
 									<span>Account</span>
 									<span class="wrapper">
-										<select name="id_pub" id="keyAccount" title="Account" placeholder="Account">
+										<select name="user_pub" id="keyAccount" title="Account" placeholder="Account">
 										</select>
 									</span><!-- .wrapper -->
 								</label><!-- -otpLabel -->
@@ -268,21 +268,26 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 					if(!signin_submit_button.hasClass('noncta')) {
 						var pack = signin_form.serializeObject();
 						if(pack) {
-							$.ajax({
-								type: 'POST',
-								url: 'signin.php',
-								dataType: 'json',
-								contentType: 'application/json; charset=utf-8',
-								data: JSON.stringify(pack),
-								success: function (res) {	
-									if(res.ok == 1) {
-										notify('You have been successfully logged in :)');
-										enc.page('welcome');
-									}
-								}, 
-								error: function(x, t, m) {},
-								timeout: 5800
-							});
+							enc.api('api/auth', function(status, res) { 
+								if(status == 'success' && res) {
+									$.ajax({
+										type: 'POST',
+										url: 'signin.php',
+										dataType: 'json',
+										contentType: 'application/json; charset=utf-8',
+										data: JSON.stringify(res),
+										success: function (res) {	
+											if(res.ok == 1) {
+												notify('You have been successfully logged in :)');
+												enc.page('welcome');
+											}
+										}, 
+										error: function(x, t, m) {},
+										timeout: 5800
+									});
+
+								}
+							}, 'POST', pack);							
 						}
 					} else {
 						notify('You have to plug Encedo into your device before going further! Do it now :) Do it!', 'attention');
