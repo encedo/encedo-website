@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 
 // Getting init file
 require_once '/var/www/encedo_config.php';
