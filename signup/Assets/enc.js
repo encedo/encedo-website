@@ -307,7 +307,6 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 				type: (method ? method : 'GET'),
 				url: url,
 				dataType: 'json',
-				crossDomain: true,
 				contentType: 'application/json; charset=utf-8',
 				data: JSON.stringify(givenObj),
 				
