@@ -4,8 +4,8 @@ session_start();
 // Getting init file
 require_once '/var/www/encedo_config.php';
 
-// Creating a new session
-session_regenerate_id();
+// Creating a new session ID
+session_regenerate_id(true);
 
 // Creating encedokey_auth token
 $srv_secret = openssl_random_pseudo_bytes(32);
@@ -35,7 +35,6 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" /> 
 		
 		<link rel="stylesheet" href="Assets/base.css" media="screen" />	
-		
 	</head>
 
 	<body class="loading">
