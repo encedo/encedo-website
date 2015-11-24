@@ -22,7 +22,7 @@ if ($new_auth === base64_decode($input["auth_data"])) {
 	//$_SESSION['user'] = mysql_fetch_assoc($user);
 	$result['ok'] = 1;
 } else {
-	$result['error'] = mysql_error;
+	$result['error'] = mysql_error();
 	$result['ok'] = -1;
 }
 
