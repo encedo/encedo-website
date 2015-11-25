@@ -231,6 +231,9 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 					setTimeout( function() { 
 						enc.api('http://encedokey.com/api/info', function(status, res) {
 							if('success' == status) {
+								
+								signin_submit_button.addClass('noaccount');
+								signin_submit_label.text('You do not have an account');
 
 								enc.api('api/manage', function(status, res) { 
 									if(status == 'success' && res) {
@@ -246,6 +249,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 												keyAccount.html('<option value="'+res.items[0].pubkey+'" selected="selected">'+res.items[0].email+'</option>');
 											}
 											
+											signin_submit_button.removeClass('noaccount');
 											signin_submit_button.removeClass('noncta');
 											signin_submit_label.text('Sign in with Encedo');
 											
@@ -300,10 +304,12 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 								}
 							}, 'POST', pack);							
 						}
-					} else if(signin_submit_button.hasClass('noaccount')) { 
-						notify('You do not have an account in your EncedoKey. Do it now :) Do it!', 'attention');
 					} else {
-						notify('You have to plug Encedo into your device before going further! Do it now :) Do it!', 'attention');
+						if(signin_submit_button.hasClass('noaccount')) { 
+							notify('You do not have an account in your EncedoKey. Do it now :) Do it!', 'attention');
+						} else {
+							notify('You have to plug Encedo into your device before going further! Do it now :) Do it!', 'attention');
+						}
 					}
 				});
 				
