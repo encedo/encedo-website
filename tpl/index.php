@@ -11,7 +11,11 @@
 									<a href="https://www.facebook.com/pages/Encedo/726990064058553?ref=hl" target="_blank" class="icon icon-facebook-circled" title="Facebooku Fanpage"></a>
 									<a href="https://twitter.com/encedo" target="_blank" class="icon icon-twitter-circled" title="Twitter Page"></a>
 									<a href="https://github.com/encedo" target="_blank" class="icon icon-github" title="Github Page"></a>
+									<?php if((isset($_SESSION) && isset($_SESSION['user']) && isset($_SESSION['user']['name']) { ?>
+									<a href="./signup/index.php" class="icon icon-lock-1" title="Encedo Account">Signed as <?php echo $_SESSION['user']['name']; ?></a>
+									<?php } else { ?>
 									<a href="./signup/index.php" class="icon icon-lock-1" title="Encedo Account">Sign in</a>
+									<?php } ?>
 								</p>
 							</div><!-- .col-1-4 -->
 						</div><!-- .grid -->
