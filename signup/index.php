@@ -47,7 +47,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 					<h1><a href="#" class="openActivity" rel="start"><img src="../Assets/img/Rysunek1b.png" alt="EncedoKey"></a></h1>	
 					<div id="APPmenu" class="hide">
 						<ul>
-							<li><a href="https://encedo.com/"><span class="icon icon-left-open-big"></span> back to homepage</a></li>
+							<li><a href="//encedo.com/"><span class="icon icon-left-open-big"></span> back to homepage</a></li>
 						</ul>
 					</div>
 				</div><!-- .wraping-->				
