@@ -106,11 +106,6 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 									<span>Name and lastname</span>
 									<input type="text" name="name" id="keyName" title="Name and lastname" placeholder="Name and lastname" data-nonempty="true" data-maxlength="64">
 								</label><!-- -otpLabel -->
-						
-								<label for="keyLabel">
-									<span>Username (login)</span>
-									<input type="text" name="username" id="keyLabel" title="Username" placeholder="Username" data-nonempty="true" data-maxlength="64">
-								</label><!-- -otpLabel -->
 								
 								<label for="keyEmail">
 									<span>Email address</span>

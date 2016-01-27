@@ -5,6 +5,6 @@ session_start();
 require_once '/var/www/encedo_config.php';
 
 $_SESSION['user'] = false;
-header('Location: ./');
+header('Location: ../');
 exit(1);
 ?>
