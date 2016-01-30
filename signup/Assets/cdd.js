@@ -90,8 +90,7 @@
 		var isNoSupport = false ||
 			(('MozOpacity' in document.body.style)&&(!document.body.children)) ||
 			((window.opera)&&(!document.querySelector)) ||
-			(((/source/.test(/a/.toString+''))||(window.chrome))&&(!window.openDatabase)) ||
-			((/a/.__proto__=='//')&&(!document.querySelector));
+			(((/source/.test(/a/.toString+''))||(window.chrome))&&(!window.openDatabase));
 		return !isNoSupport;
 	}
 	
