@@ -15,8 +15,8 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 ?><!DOCTYPE html>
 <html lang="pl">
 	<head>
-		<title>EncedoKey Administration Panel</title>
-		<meta name="Title" content="EncedoKey Administration Panel" />
+		<title>Bank X - We make privacy private</title>
+		<meta name="Title" content="Bank X - We make privacy private" />
 
 		<meta name="Distribution" content="Global" />
 		<meta http-equiv="Content-Language" content="EN" />
@@ -49,6 +49,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 					<div id="start" class="activity" title="Welcome to Bank X!">
 					
 						<h3><span>Bank X</span></h3>
+						<h4><span>We make privacy private</span></h4>
 						<p>We are a global financial institution with a strong European base, offering banking services. We draw on our experience and expertise, our commitment to excellent service and our global scale to meet the needs of a broad customer base. We use EncedoKey for user authentication.</p>
 						
 						<form action="#" id="signin_form">
@@ -159,9 +160,9 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 			</div><!-- #APPwrapper -->
 			
 			<div id="APPfooter" class="clearfix">
-				<div class="datenow" title="Super fancy timer/clock, such fun!"></div><!-- .datenow-->
-				<div class="version" title="EncedoKey Application version"></div><!-- .version-->
-				<div class="status" title="EncedoKey Connection status">connecting...</div><!-- .status-->
+			
+				<p>When you visit this website, Bank X collects standard log information and details of visitor behaviour patterns. Bank X does this to operate the website correctly, to collect statistical information on the use of the website, and to ensure compliance with mandatory legal requirements. This website collects and stores some visitor information about how this website is used, such as date and time of day you access our website, browser type, browser language, the Internet Protocol (IP) address of the computer you are using, number of hits, the pages visited, previous/subsequent sites visited and length of user session. </p>
+				
 			</div><!-- #APPfooter -->
 			
 			<div id="APPloader">

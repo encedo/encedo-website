@@ -259,11 +259,6 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 			$(this).find('.submit').trigger('click');
 		});
 		
-		var ownerDOM = prot.find('div.owner');
-		var timenowDOM = prot.find('div.datenow');
-		var statusDOM = prot.find('div.status');
-		var versionDOM = prot.find('div.version');
-		
 		var tools = prot.find('div#APPtools');
 		var buttonRefresh = tools.find('a.refresh');
 		var buttonSetup = tools.find('a.setup');
@@ -291,7 +286,6 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 		
 		app.setStatus = function(status) {
 			app.status = status;
-			statusDOM.html(status);
 		}
 		
 		app.api = function(url, func, method, givenObj, timeoutA) {
