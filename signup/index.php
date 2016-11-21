@@ -77,7 +77,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 								</label><!-- -otpLabel -->
 								
 								<div class="buttonWrapper">
-									<span id="after_submit">
+									<span id="after_submit" style="display:none;">
 										<a href="signup" class="button openActivity" rel="signup"><span><i class="icon icon-plus"></i> Create new account</span></a>
 										<span>or</span>
 									</span>
@@ -227,10 +227,12 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				function checkIfEncedo(timeout) {
 					setTimeout( function() { 
 						enc.api('http://encedokey.com/api/info', function(status, res) {
-							if('success' == status) {
+							if('success' == status && res.status.secure_storage == 'enabled') {
 								
 								signin_submit_button.addClass('noaccount');
 								signin_submit_label.text('You do not have an account');
+								signup_submit_button.removeClass('noncta');
+								signup_submit_label.text('Create new Account with EncedoKey');
 
 								enc.api('api/manage', function(status, res) { 
 									if(status == 'success' && res) {
@@ -259,9 +261,6 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 										}
 									}
 								}, 'POST',  {"list": {"filter": {"descr": '+'+siteID}}});
-								
-								signup_submit_button.removeClass('noncta');
-								signup_submit_label.text('Create new Account with EncedoKey');
 							
 							} else {
 								checkIfEncedo(2000);
@@ -294,6 +293,9 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 												notify('You have been successfully logged in :)');
 												$('#userName').text(res.user.name);
 												enc.page('welcome');
+												setTimeout(function(){
+													location.href = 'http://encedo.com/';
+												}, 2000);
 											}
 										}, 
 										error: function(x, t, m) {},

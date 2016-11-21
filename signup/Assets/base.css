@@ -152,14 +152,6 @@ body.mid #APPtools a.menu, body.small #APPtools a.menu { display: inline-block; 
 
 #APPcontent form fieldset .likeLabel { display: block; font-size: 16px; padding: 20px 20px; width: 100%; border: 1px solid #bbb; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; background: #fff; color: #333; margin: 5px 0px; -webkit-box-sizing: border-box;	-moz-box-sizing: border-box; box-sizing: border-box; font-family: "open_sans_light", "Lucida Sans Unicode", Arial, Helvetica sans-serif; outline: 0; letter-spacing: +1px; -webkit-transition: all 0.83s ease-in-out; -moz-transition: all 0.83s ease-in-out; -o-transition: all 0.83s ease-in-out; transition: all 0.83s ease-in-out; }
 
-#APPcontent .error span { color: #990000; position: relative; z-index: 1; font-weight: bold; }
-#APPcontent .error input, #APPcontent .error textarea, #APPcontent .error .wrapper { border-color: #990000 !important; }
-#APPcontent .error:before { color: #990000; font-family: 'fontello'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; font-size: 22px; display: block; text-decoration: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: absolute; right: 10px; bottom: 23px; z-index: 2; content: '\e806'; width: 30px; }
-
-#APPcontent .correct span { color: #51aca7; position: relative; z-index: 1; font-weight: bold; }
-#APPcontent .correct input, #APPcontent .correct textarea, #APPcontent .correct .wrapper { border-color: #51aca7 !important; }
-#APPcontent .correct:before { color: #51aca7; font-family: 'fontello'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; font-size: 22px; display: block; text-decoration: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: absolute; right: 10px; bottom: 23px; z-index: 2; content: '\e854'; width: 30px; }
-
 #APPcontent form fieldset .pseudoLabel { padding: 10px 0px; clear: both; display: block; }
 #APPcontent form fieldset .pseudoLabel span { display: block; font-size: 18px; color: #444; }
 #APPcontent form fieldset .pseudoLabel .button span { display: block; font-size: 18px; color: #51aca7; }
