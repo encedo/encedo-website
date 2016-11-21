@@ -137,6 +137,8 @@ body.mid #APPtools a.menu, body.small #APPtools a.menu { display: inline-block; 
 #APPcontent .buttonWrapper .noncta .icon:before { font-size: 16px; color: #aaa; }
 #APPcontent .buttonWrapper .noncta:hover .icon:before { font-size: 16px; color: #555; }
 
+#APPcontent .buttonWrapper .makeAction { color: #fff; background: #51aca7; border: 1px solid #fff; text-shadow: 0px 0px 1px #51aca7; }
+
 #APPcontent form {  }
 #APPcontent form fieldset { padding-bottom: 10px; }
 #APPcontent form fieldset label { padding: 10px 0px; clear: both; display: block; position: relative; }

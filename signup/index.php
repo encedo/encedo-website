@@ -77,8 +77,10 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 								</label><!-- -otpLabel -->
 								
 								<div class="buttonWrapper">
-									<a href="signup" class="button openActivity" rel="signup"><span><i class="icon icon-plus"></i> Create new account</span></a>
-									<span>or</span>
+									<span id="after_submit">
+										<a href="signup" class="button openActivity" rel="signup"><span><i class="icon icon-plus"></i> Create new account</span></a>
+										<span>or</span>
+									</span>
 									<a href="#" class="button noncta makeAction" rel="signin_submit" id="signin_submit_button"><span><span id="signin_submit_label">Plug Encedo in to log in</span> <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
@@ -214,6 +216,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				var siteID = 'eauth-encedo.com';
 				var signin_form = $('#signin_form');
 				var signup_form = $('#signup_form');
+				var after_submit = $('#after_submit');
 				var keyAccount = $('#keyAccount');
 				var keyAccountLabel = $('#keyAccountLabel');
 				var signin_submit_label = $('#signin_submit_label');
@@ -245,10 +248,12 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 											
 											signin_submit_button.removeClass('noaccount');
 											signin_submit_button.removeClass('noncta');
+											after_submit.hide();
 											signin_submit_label.text('Sign in with Encedo');
 											
 											
 										} else {
+											after_submit.show();
 											signin_submit_button.addClass('noaccount');
 											signin_submit_label.text('You do not have an account');
 										}
