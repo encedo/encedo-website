@@ -284,7 +284,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 							
 						});
 					});
-				});
+				}
 				
 				enc.register('start', function(){
 					
