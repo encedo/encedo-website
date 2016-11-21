@@ -211,14 +211,14 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				var signup_submit_label = $('#signup_submit_label');
 				var signup_submit_button = $('#signup_submit_button');
 				
-				var
-				
 				function checkIfEncedo(timeout) {
 					setTimeout( function() { 
 						enc.api('http://encedokey.com/api/info', function(status, res) {
 							if('success' == status) {
 								
 								if(res.status.secure_storage.substring(0,7) == 'enabled') {
+									
+									checkIfEncedoStillIsThere(10000);
 									
 									signin_submit_button.addClass('noaccount');
 									signin_submit_label.text('You do not have an account');
@@ -242,8 +242,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 												signin_submit_button.removeClass('noaccount');
 												signin_submit_button.removeClass('noncta');
 												after_submit.hide();
-												signin_submit_label.text('Sign in with Encedo');
-												
+												signin_submit_label.text('Sign in with Encedo');											
 												
 											} else {
 												after_submit.show();
@@ -267,6 +266,25 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				}
 				
 				checkIfEncedo(10);
+				
+				function checkIfEncedoStillIsThere(timeout) {
+					setTimeout( function() { 
+						enc.api('http://encedokey.com/api/info', function(status, res) {
+							if('success' == status) {
+								
+								if(res.status.secure_storage.substring(0,7) == 'enabled') {
+									checkIfEncedoStillIsThere(2000);
+								} else {
+									location.reload();
+								}
+								
+							} else {
+									location.reload();
+							}
+							
+						});
+					});
+				});
 				
 				enc.register('start', function(){
 					
