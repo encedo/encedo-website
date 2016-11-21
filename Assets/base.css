@@ -62,10 +62,7 @@ input, select { vertical-align:middle; }
 
 /* some basic declarations */
 html { position: relative; background-size: 100% 100%; background: #fff; }
-body { -webkit-transition: opacity 0.43s ease-out; -moz-transition: opacity 0.43s ease-out; -o-transition: opacity 0.43s ease-out; transition: opacity 0.43s ease-out; opacity: 0; -moz-opacity: 0; -webkit-opacity: 0.3; -o-opacity: 0.3; filter: alpha(opacity = 30); font-family: "Helvetica Neue", "open_sans", "Lucida Sans", "Trebuchet MS", Arial, Helvetica sans-serif; position: relative; overflow-x: hidden; color: #666; margin: 0 auto; min-height: 100%; }
-
-body.portrait { opacity: 1; -moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; filter: alpha(opacity = 100); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; left: 0px; }
-body.landscape { opacity: 1; -moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; filter: alpha(opacity = 100); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; left: 0px; }
+body { font-family: "Helvetica Neue", "open_sans", "Lucida Sans", "Trebuchet MS", Arial, Helvetica sans-serif; position: relative; overflow-x: hidden; color: #666; margin: 0 auto; min-height: 100%; }
 
 body.dead {  }    
 body.loading {  }    
