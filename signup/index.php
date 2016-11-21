@@ -264,12 +264,10 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 										}
 									}, 'POST',  {"list": {"filter": {"descr": '+'+siteID}}});
 									
-									} else {
-										
-										signin_submit_label.text('Unlock EncedoKey to continue');
-									}
-								
-								
+								} else {
+									checkIfEncedo(2000);
+									signin_submit_label.text('Unlock EncedoKey to continue');
+								}
 							
 							} else {
 								checkIfEncedo(2000);
