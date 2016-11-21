@@ -49,7 +49,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 					<div id="start" class="activity" title="Welcome to Bank X!">
 					
 						<h3><span>Bank X</span></h3>
-						<h4><span>We make privacy private</span></h4>
+						<h4><span>We keep privacy private</span></h4>
 						<p>We are a global financial institution with a strong European base, offering banking services. We draw on our experience and expertise, our commitment to excellent service and our global scale to meet the needs of a broad customer base. We use EncedoKey for user authentication.</p>
 						
 						<form action="#" id="signin_form">
