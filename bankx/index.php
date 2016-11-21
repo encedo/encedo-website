@@ -322,9 +322,9 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 						}
 					} else {
 						if(signin_submit_button.hasClass('noaccount')) { 
-							notify('You do not have an account in your EncedoKey. Do it now :) Do it!', 'attention');
+							notify('You do not have an account in your EncedoKey.', 'attention');
 						} else {
-							notify('You have to plug Encedo into your device before going further! Do it now :) Do it!', 'attention');
+							notify('You have to plug Encedo into your device before going further!', 'attention');
 						}
 					}
 				});
@@ -385,7 +385,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 							}, 'POST', { 'type': 'curve25519', 'contact': pack.email, 'descr': siteID });
 						}
 					} else { 
-						notify('You have to plug Encedo into your device before going further! Do it now :) Do it!', 'attention');
+						notify('You have to plug Encedo into your device before going further!', 'attention');
 					}
 				});
 				

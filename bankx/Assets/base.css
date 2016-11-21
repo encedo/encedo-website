@@ -47,7 +47,7 @@ body.loaded {  }
 #APPheader .wraping { display: table-cell; vertical-align: middle; }
 #APPheader .wraping img { height: 40px; }
 #APPwrapper { max-width: 600px; margin: 0 auto; }
-#APPcontent { text-align: center; margin-top: 140px; }
+#APPcontent { text-align: center; margin-top: 140px; overflow: hidden; }
 #APPcontent h1 { font-size: 40px; }
 
 #APPheader h1 a { display: inline-block; height: 34px; min-width: 131px; padding: 0px 10px 10px 10px; margin: 0px 20px 10px 10px; }
