@@ -227,40 +227,49 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				function checkIfEncedo(timeout) {
 					setTimeout( function() { 
 						enc.api('http://encedokey.com/api/info', function(status, res) {
-							if('success' == status && res.status.secure_storage == 'enabled') {
+							if('success' == status) {
 								
-								signin_submit_button.addClass('noaccount');
-								signin_submit_label.text('You do not have an account');
-								signup_submit_button.removeClass('noncta');
-								signup_submit_label.text('Create new Account with EncedoKey');
+								if(res.status.secure_storage.substring(0,7) == 'enabled') {
+									
+									signin_submit_button.addClass('noaccount');
+									signin_submit_label.text('You do not have an account');
+									signup_submit_button.removeClass('noncta');
+									signup_submit_label.text('Create new Account with EncedoKey');
 
-								enc.api('api/manage', function(status, res) { 
-									if(status == 'success' && res) {
-										if(res.items.length > 0) {
-											if(res.items.length > 1) {
-												var optStr = '';
-												$.each(res.items, function(it, el){
-													optStr += '<option value="'+el.pubkey+'">'+el.email+'</option>';
-												});
-												keyAccount.html(optStr);
-												keyAccountLabel.removeClass('index');
+									enc.api('api/manage', function(status, res) { 
+										if(status == 'success' && res) {
+											if(res.items.length > 0) {
+												if(res.items.length > 1) {
+													var optStr = '';
+													$.each(res.items, function(it, el){
+														optStr += '<option value="'+el.pubkey+'">'+el.email+'</option>';
+													});
+													keyAccount.html(optStr);
+													keyAccountLabel.removeClass('index');
+												} else {
+													keyAccount.html('<option value="'+res.items[0].pubkey+'" selected="selected">'+res.items[0].email+'</option>');
+												}
+												
+												signin_submit_button.removeClass('noaccount');
+												signin_submit_button.removeClass('noncta');
+												after_submit.hide();
+												signin_submit_label.text('Sign in with Encedo');
+												
+												
 											} else {
-												keyAccount.html('<option value="'+res.items[0].pubkey+'" selected="selected">'+res.items[0].email+'</option>');
+												after_submit.show();
+												signin_submit_button.addClass('noaccount');
+												signin_submit_label.text('You do not have an account');
 											}
-											
-											signin_submit_button.removeClass('noaccount');
-											signin_submit_button.removeClass('noncta');
-											after_submit.hide();
-											signin_submit_label.text('Sign in with Encedo');
-											
-											
-										} else {
-											after_submit.show();
-											signin_submit_button.addClass('noaccount');
-											signin_submit_label.text('You do not have an account');
 										}
+									}, 'POST',  {"list": {"filter": {"descr": '+'+siteID}}});
+									
+									} else {
+										
+										signin_submit_label.text('Unlock EncedoKey to continue');
 									}
-								}, 'POST',  {"list": {"filter": {"descr": '+'+siteID}}});
+								
+								
 							
 							} else {
 								checkIfEncedo(2000);
