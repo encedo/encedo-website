@@ -463,16 +463,10 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 		buttonMenu.click( function( ) { app.menu( ) } );
 		menuClose.click( function(ev) { ev.preventDefault( ); menuDOM.addClass('hide'); } );
 		
-		// creating UI running elements
-		versionDOM.html(app.version);
-		
 		// opening default page at start
 		setTimeout( function() { 
 			app.page((last ? last : settings.start));
 		}, 300);
-		
-		// starting clock ticking
-		_startTime(timenowDOM);
 		
 		return app;
 		
