@@ -48,7 +48,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				
 					<div id="start" class="activity" title="Welcome to Bank X!">
 					
-						<h1><span>Bank X</span></h1>
+						<h3><span>Bank X</span></h3>
 						<p>We are a global financial institution with a strong European base, offering banking services. We draw on our experience and expertise, our commitment to excellent service and our global scale to meet the needs of a broad customer base. We use EncedoKey for user authentication.</p>
 						
 						<form action="#" id="signin_form">
@@ -210,6 +210,8 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				var signin_submit_button = $('#signin_submit_button');
 				var signup_submit_label = $('#signup_submit_label');
 				var signup_submit_button = $('#signup_submit_button');
+				
+				var
 				
 				function checkIfEncedo(timeout) {
 					setTimeout( function() { 

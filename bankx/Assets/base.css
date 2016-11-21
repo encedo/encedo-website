@@ -115,12 +115,12 @@ body.mid #APPtools a.menu, body.small #APPtools a.menu { display: inline-block; 
 
 
 /* CONTENT CLASSES */
-#APPcontent { min-height: 0px; padding: 10px 10px 30px 10px; text-align: left; line-height: 1.4; }
+#APPcontent { min-height: 0px; padding: 10px 10px 30px 10px; text-align: center; line-height: 1.4; }
 #APPcontent h2 { font-size: 28px; margin-bottom: 0px; color: #333; margin-bottom: 30px; padding-top: 10px; font-weight: normal; }
 #APPcontent h2 span { border-bottom: 1px solid #ccc; padding-bottom: 15px; }
-#APPcontent h3 { font-size: 22px; margin-bottom: 0px; color: #555; margin-bottom: 5px; font-weight: normal; }
+#APPcontent h3 { font-size: 38px; margin-bottom: 0px; color: #555; margin-bottom: 5px; font-weight: normal; }
 #APPcontent h3 span { display: inline-block; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-#APPcontent p { font-size: 17px; padding-top: 10px; color: #777; margin-bottom: 20px; }
+#APPcontent p { font-size: 17px; padding-top: 20px; color: #777; margin-bottom: 20px; }
 #APPcontent p a { color: #769694; text-decoration: none; border-bottom: 1px dashed #A8D6D3; }
 #APPcontent img { margin: 5px; display: inline-block; }
 
