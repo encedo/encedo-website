@@ -30,7 +30,7 @@ input, select, textarea { vertical-align:middle; outline: none; }
 *, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; -moz-box-sizing: border-box; }
 
 html, body { height: 100%; }
-body { font-family: "Open Sans", "Lucida Sans", "Trebuchet MS", Arial, Helvetica sans-serif; background: #f5f5f5; background-attachment: fixed; position: relative; background-size: 100% 100%; overflow-x: hidden; padding: 0px; position: relative; }
+body { font-family: "Open Sans", "Lucida Sans", "Trebuchet MS", Arial, Helvetica sans-serif; background: #f5f5f5; background-attachment: fixed; position: relative; background-size: 100% 100%; overflow-x: hidden; padding: 0px; position: relative; background: url('bgr.jpg') no-repeat center center; }
 body.android { overflow: hidden; }
 body.ios { overflow: hidden; }
 
@@ -63,30 +63,6 @@ body.loaded {  }
 #APPmenu ul li a:hover .icon:before { color: #eee; }
 #APPmenuHide { display: none; float: right; padding: 10px 30px 0px 10px; margin-right: 10px; background-size: auto 100%; }
 
-body.mid #APPheader, body.small #APPheader { display: block; position: static; width: 100%; border-bottom: 1px solid #990000; padding: 0px 0px 0px 0px; box-shadow: 0px 0px 10px 1px rgba(0,198,255,0.1); left: auto; right: auto; top: auto; bottom: auto; }
-body.mid #APPheader .wraping, body.small #APPheader .wraping { display: block; background: rgba(54, 151, 142, 0.8) ; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  #1e5799 0%, rgba(54, 151, 142, 0.8)  0%, #0C526C 100%, #3d7eaa 100%, #182848 100%, #6e48aa 100%, #6e48aa 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1e5799), color-stop(0%,rgba(54, 151, 142, 0.8) ), color-stop(100%,#0C526C), color-stop(100%,#3d7eaa), color-stop(100%,#182848), color-stop(100%,#6e48aa), color-stop(100%,#6e48aa)); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* IE10+ */
-    background: radial-gradient(ellipse at center,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(54, 151, 142, 0.8) ', endColorstr='#6e48aa',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ padding: 10px 10px 10px 10px; }
-body.mid #APPheader h1, body.small #APPheader h1 { float: Left; }
-body.mid #APPheader h1 a, body.small #APPheader h1 a { margin-top: 17px; }
-body.mid #APPheader h1 a img, body.small #APPheader h1 a img { height: 24px; }
-
-body.mid #APPmenu, body.small #APPmenu { clear: both; margin: 0px 0px 0px 0px; -webkit-transition: height 0.53s ease-out; -moz-transition: height 0.53s ease-out; -o-transition: height 0.53s ease-out; transition: height 0.53s ease-out; height: 350px; overflow: hidden; padding-bottom: 0px; }
-body.mid #APPmenu.hide, body.small #APPmenu.hide { height: 0px; display: block; }
-body.mid #APPmenu ul, body.small #APPmenu ul { background: #fff; padding: 10px; list-style: none; float: none; }
-body.mid #APPmenu ul li, body.small #APPmenu ul li  { float: none; }
-body.mid #APPmenu ul li a, body.small #APPmenu ul li a { display: block; padding: 12px 10px 12px 20px; border-left: 3px solid #ddd; -webkit-transition: all 0.53s 0.1s ease-out; -moz-transition: all 0.53s 0.1s ease-out; -o-transition: all 0.53s 0.1s ease-out; transition: all 0.53s 0.1s ease-out; }
-body.mid #APPmenu ul li a:hover, body.small #APPmenu ul li a:hover { background: #eee; color: #222; border-left: 3px solid #666; }
-body.mid #APPmenuHide, body.small #APPmenuHide { display: block; float: right; padding: 10px 30px 0px 10px; margin-right: 10px; background-size: auto 100%; }
-
-body.mid #APPwrapper, body.small #APPwrapper { position: static; display: block; width: 100%; left: auto; right: auto; top: auto; bottom: auto; max-width: 99999px; padding: 0px 20px; }
-body.mid #APPcontent, body.small #APPcontent { display: block; margin: 0 auto; max-width: 700px; }
-
 
 /* TOOLS */
 #APPtools { text-align: right; padding: 22px 10px 20px 8px; }
@@ -96,26 +72,13 @@ body.mid #APPcontent, body.small #APPcontent { display: block; margin: 0 auto; m
 #APPtools a.menu { display: none; }
 body.mid #APPtools a.menu, body.small #APPtools a.menu { display: inline-block; }
 
-/* FOOTER */
-#APPfooter { color: #777; border-top: 1px solid #ddd; padding: 10px; position: fixed; bottom: -50px; right: 0px; left: 0px; text-align: right; overflow: hidden; background: #fff; z-index: 2; }
-#APPfooter .datenow { display: inline; margin: 0px 0px; }
-#APPfooter .version { display: inline; margin: 0px 10px; }
-#APPfooter .status { display: inline; font-weight: bold; color: #990000; margin: 0px 0px; }
-
-.filter-gradient.blue {
-    background: rgba(54, 151, 142, 0.8) ; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  #1e5799 0%, rgba(54, 151, 142, 0.8)  0%, #0C526C 100%, #3d7eaa 100%, #182848 100%, #6e48aa 100%, #6e48aa 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1e5799), color-stop(0%,rgba(54, 151, 142, 0.8) ), color-stop(100%,#0C526C), color-stop(100%,#3d7eaa), color-stop(100%,#182848), color-stop(100%,#6e48aa), color-stop(100%,#6e48aa)); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* IE10+ */
-    background: radial-gradient(ellipse at center,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(54, 151, 142, 0.8) ', endColorstr='#6e48aa',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
-
-
 /* CONTENT CLASSES */
-#APPcontent { min-height: 0px; padding: 10px 10px 30px 10px; text-align: center; line-height: 1.4; }
+#APPcontent {     min-height: 0px;
+    padding: 30px 40px 20px 40px;
+    text-align: left;
+    line-height: 1.4;
+    background: rgba(250,250,250,0.9);
+    border-radius: 18px; }
 #APPcontent h2 { font-size: 28px; margin-bottom: 0px; color: #333; margin-bottom: 30px; padding-top: 10px; font-weight: normal; }
 #APPcontent h2 span { border-bottom: 1px solid #ccc; padding-bottom: 15px; }
 #APPcontent h3 { font-size: 38px; margin-bottom: 0px; color: #555; margin-bottom: 5px; font-weight: normal; }
