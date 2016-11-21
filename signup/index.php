@@ -10,7 +10,7 @@ session_regenerate_id(true);
 // Creating encedokey_auth token
 $srv_secret = openssl_random_pseudo_bytes(32);
 $srv_form_challenge = curve25519_public($srv_secret);
-$_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_secret);
+$_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64_encode($srv_secret));
 
 ?><!DOCTYPE html>
 <html lang="pl">
@@ -25,7 +25,6 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => $srv_s
 		<meta http-equiv="Pragma" content="no-cache" />
 		<meta name="revisit-after" content="2 days" />
 		<meta charset="utf-8" />
-		<link rel="shortcut icon" href="favicon.ico" /> 
 		
 		<meta name="HandheldFriendly" content="true" />
 		<meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no" />
