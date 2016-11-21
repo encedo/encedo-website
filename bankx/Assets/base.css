@@ -71,7 +71,7 @@ body.loaded {  }
 #APPtools a.menu { display: none; }
 body.mid #APPtools a.menu, body.small #APPtools a.menu { display: inline-block; }
 
-#NewHeader { position: absolute; top: 0px; left: 0px; right: 0px; padding: 5px 10px; background: #111; text-align: right; }
+#NewHeader { position: fixed; top: 0px; left: 0px; right: 0px; padding: 5px 10px; background: #111; text-align: right; }
 #NewHeader a  { font-size: 12px; color: #eee; margin: 0px 8px; }
 
 /* CONTENT CLASSES */
