@@ -320,7 +320,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 												$('#userName').text(res.user.name);
 												enc.page('welcome');
 												setTimeout(function(){
-													location.href = 'http://encedo.com/';
+													location.href = 'http://encedo.com/bankx/account.php';
 												}, 2000);
 											}
 										}, 
