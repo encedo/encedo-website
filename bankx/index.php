@@ -40,6 +40,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 	
 		<div id="NewHeader">
 			<div id="NewHeaderWrapper">
+				<div class="button">Get back</div>
 				<a href="#">About Bank X</a>
 				<a href="#">Why choose us?</a>
 				<a href="#">Help</a>
