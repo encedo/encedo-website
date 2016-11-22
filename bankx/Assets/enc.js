@@ -398,7 +398,7 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 						history.pushState( { 'page': activity } , (title ? title : null), app.url + '#' + activity);
 					} 
 					var adrD = document.location.href.split('#');
-					document.location.href = app.url + '#' + activity;
+					//document.location.href = app.url + '#' + activity;
 					
 					// opening default action connected to this activity
 					// if there is one
