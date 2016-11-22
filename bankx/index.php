@@ -15,8 +15,8 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 ?><!DOCTYPE html>
 <html lang="pl">
 	<head>
-		<title>Bank X - We make privacy private</title>
-		<meta name="Title" content="Bank X - We make privacy private" />
+		<title>BankX - We keep privacy private</title>
+		<meta name="Title" content="BankX - We keep privacy private" />
 
 		<meta name="Distribution" content="Global" />
 		<meta http-equiv="Content-Language" content="EN" />
@@ -56,7 +56,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				
 					<div id="start" class="activity" title="Welcome to Bank X!">
 					
-						<h3><span>Bank X</span></h3>
+						<h3><span>Welcome to BankX</span></h3>
 						<h4><span>We keep privacy private</span></h4>
 						<p>We are a global financial institution with a strong European base, offering banking services. We draw on our experience and expertise, our commitment to excellent service and our global scale to meet the needs of a broad customer base. We use EncedoKey for user authentication.</p>
 						
