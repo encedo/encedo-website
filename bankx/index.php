@@ -231,10 +231,10 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 						enc.api('http://encedokey.com/api/info', function(status, res) {
 							if('success' == status) {
 								
+								afterEncedoIsThere.show();
+								
 								if(res.status.secure_storage.substring(0,7) == 'enabled') {
-									
-									afterEncedoIsThere.show();
-									
+
 									checkIfEncedoStillIsThere(10000);
 									
 									signin_submit_button.addClass('noaccount');
@@ -271,12 +271,12 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 									
 								} else {
 									checkIfEncedo(2000);
-									afterEncedoIsThere.hide();
 									signin_submit_label.text('Unlock EncedoKey to continue');
 								}
 							
 							} else {
 								checkIfEncedo(2000);
+								afterEncedoIsThere.hide();
 							}
 											
 						}, 'GET');
