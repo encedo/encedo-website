@@ -83,6 +83,8 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 									<a href="#" class="button noncta makeAction" rel="signin_submit" id="signin_submit_button"><span><span id="signin_submit_label">Plug Encedo in to log in</span> <i class="icon icon-right-open-big"></i></span></a>
 								</div><!-- .buttonWrapper -->
 								
+								<p><a href="http://encedokey.com" id="afterEncedoIsThere" style="display: none;">Encedo Panel</a></p>
+								
 								<input type="hidden" name="remote_pub" value="<?php echo base64_encode($srv_form_challenge); ?>">
 								<input type="hidden" name="descr" value="eauth-encedo.com">
 								<input type="submit" name="submit" class="index" value="submit">
@@ -222,6 +224,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 				var signin_submit_button = $('#signin_submit_button');
 				var signup_submit_label = $('#signup_submit_label');
 				var signup_submit_button = $('#signup_submit_button');
+				var afterEncedoIsThere = $('#afterEncedoIsThere');
 				
 				function checkIfEncedo(timeout) {
 					setTimeout( function() { 
@@ -229,6 +232,8 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 							if('success' == status) {
 								
 								if(res.status.secure_storage.substring(0,7) == 'enabled') {
+									
+									afterEncedoIsThere.show();
 									
 									checkIfEncedoStillIsThere(10000);
 									
@@ -266,6 +271,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 									
 								} else {
 									checkIfEncedo(2000);
+									afterEncedoIsThere.hide();
 									signin_submit_label.text('Unlock EncedoKey to continue');
 								}
 							
@@ -295,7 +301,7 @@ $_SESSION["encedokey_auth"] = array(base64_encode($srv_form_challenge) => base64
 							}
 							
 						});
-					});
+					} , timeout);
 				}
 				
 				enc.register('start', function(){
