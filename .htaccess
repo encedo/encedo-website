@@ -1,7 +1,12 @@
 RewriteEngine on
-RewriteRule ^$ index.php?page=index [L]
-RewriteRule ^([a-zA-Z0-9_]+).html$ index.php?page=$1 [L]
-RewriteRule ^([a-zA-Z0-9_]+)$ index.php?page=404 [L]
-#RewriteEngine off
+RewriteCond %{HTTP_HOST} ^adwokatmarciniak\.pl$ [NC]
+RewriteRule (.*) http://www.adwokatmarciniak.pl/$1 [L,R=301]
 
-errordocument 404 /index.php?page=404
+RewriteRule ^$ index.php?page=kancelaria-adwokacka-wroclaw-adwokat-tomasz-marciniak [L]
+RewriteRule ^index.html$ index.php?page=kancelaria-adwokacka-wroclaw-adwokat-tomasz-marciniak [L]
+RewriteRule ^zakres-dzialalnosci-([0-9]+).html$ index.php?page=zakres-dzialalnosci&req=$1 [L]
+RewriteRule ^wyslij3.html$ api/wyslij.php [L]
+RewriteRule ^(.*).html$ index.php?page=$1 [L]
+
+
+#RewriteEngine off

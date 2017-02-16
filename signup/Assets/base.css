@@ -16,7 +16,7 @@ table { border-collapse:collapse; border-spacing:0; }
 hr { display:block; height:1px; border:0; border-top:1px solid #cccccc; margin:1em 0; padding:0; }
 input, select, textarea { vertical-align:middle; outline: none; }
 .nowrap { white-space: nowrap; }
-.index { position: absolute !important; top: -200053px; }
+.index { position: absolute; top: -200053px; }
 .hidden { display: none; }
 
 ::-webkit-scrollbar { width: 12px; background: #000; margin: 0px 0px 0px -16px; padding: 0px 2px; }
@@ -30,9 +30,12 @@ input, select, textarea { vertical-align:middle; outline: none; }
 *, *:after, *:before { -webkit-box-sizing: border-box; box-sizing: border-box; -moz-box-sizing: border-box; }
 
 html, body { height: 100%; }
-body { font-family: "Open Sans", "Lucida Sans", "Trebuchet MS", Arial, Helvetica sans-serif; background: #f5f5f5; background-attachment: fixed; position: relative; background-size: 100% 100%; overflow-x: hidden; padding: 0px; position: relative; }
+body { -webkit-transition: opacity 0.43s ease-out; -moz-transition: opacity 0.43s ease-out; -o-transition: opacity 0.43s ease-out; transition: opacity 0.43s ease-out; margin: 0 auto; opacity: 0; -moz-opacity: 0; -webkit-opacity: 0; -o-opacity: 0; filter: alpha(opacity = 0); font-family: "Open Sans", "Lucida Sans", "Trebuchet MS", Arial, Helvetica sans-serif; background: #f5f5f5; background-attachment: fixed; position: relative; background-size: 100% 100%; overflow-x: hidden; padding: 0px; position: relative; }
 body.android { overflow: hidden; }
 body.ios { overflow: hidden; }
+
+body.portrait { opacity: 1; -moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; filter: alpha(opacity = 100); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; left: 0px; }
+body.landscape { opacity: 1; -moz-opacity: 1; -webkit-opacity: 1; -o-opacity: 1; filter: alpha(opacity = 100); -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; left: 0px; }
 
 body.dead {  }    
 body.loading {  }    
@@ -43,37 +46,28 @@ body.loaded {  }
 #APP { min-height: 99%; font-family: "open_sans_light", "Lucida Sans Unicode", Arial, Helvetica sans-serif; text-shadow: 0px 0px 1px #eee; color: #555; font-size: 16px; }
 #APP a { color: #555; text-decoration: none; }
 
-#APPheader { top: 0px; bottom: 0px; left: 0px; width: 30%; z-index: 3; position: fixed; border-right: 1px solid #51aca7; text-align: right; padding: 0% 2%; height: 100%; display: table; }
+#APPheader { top: 0px; bottom: 0px; left: 0px; width: 30%; z-index: 3; position: fixed; border-right: 1px solid #51aca7; text-align: right; padding: 0% 2%; background: #fff; height: 100%; display: table; }
 #APPheader .wraping { display: table-cell; vertical-align: middle; }
-#APPheader .wraping img { height: 40px; }
 #APPwrapper { top: 0px; bottom: 0px; left: 33%; width: 70%; z-index: 1; position: absolute; display: table; max-width: 780px; height: 100%; padding-right: 30px; }
 #APPcontent { display: table-cell; vertical-align: middle; overflow: auto; margin-left: 150px; }
 
-#APPheader h1 a { display: inline-block; height: 34px; min-width: 131px; padding: 0px 10px 10px 10px; margin: 0px 20px 10px 10px; }
+#APPheader h1 a { display: inline-block; height: 34px; width: 131px; background: #fff no-repeat center center; padding: 0px 10px 10px 10px; margin: 0px 20px 10px 10px; background-image: url('data:image/jpg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAABHAAD/4QMraHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjAtYzA2MSA2NC4xNDA5NDksIDIwMTAvMTIvMDctMTA6NTc6MDEgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzUuMSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjMyQTkwQ0I3Q0FDMTExRTNCNzRFREVEMjQ3NThGNTBGIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjMyQTkwQ0I4Q0FDMTExRTNCNzRFREVEMjQ3NThGNTBGIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MzJBOTBDQjVDQUMxMTFFM0I3NEVERUQyNDc1OEY1MEYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MzJBOTBDQjZDQUMxMTFFM0I3NEVERUQyNDc1OEY1MEYiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAmQWRvYmUAZMAAAAABAwAVBAMGCg0AAAZaAAAIZgAACmkAAAzK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'); }
 #APPheader h1 a span { position: absolute; top: -200053px; }
 
 #APPmenu { margin: 0px 0px 0px 0px; padding-bottom: 30px; }
-#APPmenu ul { padding: 0px 10px; list-style: none; }
+#APPmenu ul { background: #fff; padding: 0px 10px; list-style: none; }
 #APPmenu ul li { text-align: right; }
-#APPmenu ul li a { display: block; padding: 10px 22px 14px 10px; font-size: 18px; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px; color: #eee; }
-#APPmenu ul li a:hover { color: #eee; }
-#APPmenu ul li a .icon { color: #eee; }
-#APPmenu ul li a .icon:before { color: #eee; }
-#APPmenu ul li a:hover .icon:before { color: #eee; }
+#APPmenu ul li a { display: block; padding: 10px 14px 14px 10px; font-size: 18px; border-radius: 6px; -moz-border-radius: 6px; -webkit-border-radius: 6px; border: 1px solid #fff; }
+#APPmenu ul li a:hover { color: #51aca7; border: 1px solid #ccc; }
+#APPmenu ul li a .icon { color: #aaa; }
+#APPmenu ul li a .icon:before { color: #aaa; }
+#APPmenu ul li a:hover .icon:before { color: #51aca7; }
 #APPmenuHide { display: none; float: right; padding: 10px 30px 0px 10px; margin-right: 10px; background-size: auto 100%; }
 
 body.mid #APPheader, body.small #APPheader { display: block; position: static; width: 100%; border-bottom: 1px solid #51aca7; padding: 0px 0px 0px 0px; box-shadow: 0px 0px 10px 1px rgba(0,198,255,0.1); left: auto; right: auto; top: auto; bottom: auto; }
-body.mid #APPheader .wraping, body.small #APPheader .wraping { display: block; background: rgba(54, 151, 142, 0.8) ; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  #1e5799 0%, rgba(54, 151, 142, 0.8)  0%, #0C526C 100%, #3d7eaa 100%, #182848 100%, #6e48aa 100%, #6e48aa 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1e5799), color-stop(0%,rgba(54, 151, 142, 0.8) ), color-stop(100%,#0C526C), color-stop(100%,#3d7eaa), color-stop(100%,#182848), color-stop(100%,#6e48aa), color-stop(100%,#6e48aa)); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* IE10+ */
-    background: radial-gradient(ellipse at center,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(54, 151, 142, 0.8) ', endColorstr='#6e48aa',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */ padding: 10px 10px 10px 10px; }
+body.mid #APPheader .wraping, body.small #APPheader .wraping { display: block; background: #fff; padding: 10px 10px 10px 10px; }
 body.mid #APPheader h1, body.small #APPheader h1 { float: Left; }
 body.mid #APPheader h1 a, body.small #APPheader h1 a { margin-top: 17px; }
-body.mid #APPheader h1 a img, body.small #APPheader h1 a img { height: 24px; }
 
 body.mid #APPmenu, body.small #APPmenu { clear: both; margin: 0px 0px 0px 0px; -webkit-transition: height 0.53s ease-out; -moz-transition: height 0.53s ease-out; -o-transition: height 0.53s ease-out; transition: height 0.53s ease-out; height: 350px; overflow: hidden; padding-bottom: 0px; }
 body.mid #APPmenu.hide, body.small #APPmenu.hide { height: 0px; display: block; }
@@ -96,21 +90,10 @@ body.mid #APPcontent, body.small #APPcontent { display: block; margin: 0 auto; m
 body.mid #APPtools a.menu, body.small #APPtools a.menu { display: inline-block; }
 
 /* FOOTER */
-#APPfooter { color: #777; border-top: 1px solid #ddd; padding: 10px; position: fixed; bottom: -50px; right: 0px; left: 0px; text-align: right; overflow: hidden; background: #fff; z-index: 2; }
+#APPfooter { color: #777; border-top: 1px solid #ddd; padding: 10px; position: fixed; bottom: 0px; right: 0px; left: 0px; text-align: right; overflow: hidden; background: #fff; z-index: 2; }
 #APPfooter .datenow { display: inline; margin: 0px 0px; }
 #APPfooter .version { display: inline; margin: 0px 10px; }
 #APPfooter .status { display: inline; font-weight: bold; color: #51aca7; margin: 0px 0px; }
-
-.filter-gradient.blue {
-    background: rgba(54, 151, 142, 0.8) ; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover,  #1e5799 0%, rgba(54, 151, 142, 0.8)  0%, #0C526C 100%, #3d7eaa 100%, #182848 100%, #6e48aa 100%, #6e48aa 100%); /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#1e5799), color-stop(0%,rgba(54, 151, 142, 0.8) ), color-stop(100%,#0C526C), color-stop(100%,#3d7eaa), color-stop(100%,#182848), color-stop(100%,#6e48aa), color-stop(100%,#6e48aa)); /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* IE10+ */
-    background: radial-gradient(ellipse at center,  #1e5799 0%,rgba(54, 151, 142, 0.8)  0%,#0C526C 100%,#3d7eaa 100%,#182848 100%,#6e48aa 100%,#6e48aa 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(54, 151, 142, 0.8) ', endColorstr='#6e48aa',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-}
 
 
 /* CONTENT CLASSES */
@@ -134,8 +117,6 @@ body.mid #APPtools a.menu, body.small #APPtools a.menu { display: inline-block; 
 #APPcontent .buttonWrapper .noncta .icon:before { font-size: 16px; color: #aaa; }
 #APPcontent .buttonWrapper .noncta:hover .icon:before { font-size: 16px; color: #555; }
 
-#APPcontent .buttonWrapper .makeAction { color: #fff; background: #51aca7; border: 1px solid #fff; text-shadow: 0px 0px 1px #51aca7; }
-
 #APPcontent form {  }
 #APPcontent form fieldset { padding-bottom: 10px; }
 #APPcontent form fieldset label { padding: 10px 0px; clear: both; display: block; position: relative; }
@@ -148,6 +129,14 @@ body.mid #APPtools a.menu, body.small #APPtools a.menu { display: inline-block; 
 #APPcontent form fieldset label .icon { display: none; }
 
 #APPcontent form fieldset .likeLabel { display: block; font-size: 16px; padding: 20px 20px; width: 100%; border: 1px solid #bbb; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; background: #fff; color: #333; margin: 5px 0px; -webkit-box-sizing: border-box;	-moz-box-sizing: border-box; box-sizing: border-box; font-family: "open_sans_light", "Lucida Sans Unicode", Arial, Helvetica sans-serif; outline: 0; letter-spacing: +1px; -webkit-transition: all 0.83s ease-in-out; -moz-transition: all 0.83s ease-in-out; -o-transition: all 0.83s ease-in-out; transition: all 0.83s ease-in-out; }
+
+#APPcontent .error span { color: #990000; position: relative; z-index: 1; font-weight: bold; }
+#APPcontent .error input, #APPcontent .error textarea, #APPcontent .error .wrapper { border-color: #990000 !important; }
+#APPcontent .error:before { color: #990000; font-family: 'fontello'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; font-size: 22px; display: block; text-decoration: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: absolute; right: 10px; bottom: 23px; z-index: 2; content: '\e806'; width: 30px; }
+
+#APPcontent .correct span { color: #51aca7; position: relative; z-index: 1; font-weight: bold; }
+#APPcontent .correct input, #APPcontent .correct textarea, #APPcontent .correct .wrapper { border-color: #51aca7 !important; }
+#APPcontent .correct:before { color: #51aca7; font-family: 'fontello'; speak: none; font-style: normal; font-weight: normal; font-variant: normal; text-transform: none; font-size: 22px; display: block; text-decoration: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; position: absolute; right: 10px; bottom: 23px; z-index: 2; content: '\e854'; width: 30px; }
 
 #APPcontent form fieldset .pseudoLabel { padding: 10px 0px; clear: both; display: block; }
 #APPcontent form fieldset .pseudoLabel span { display: block; font-size: 18px; color: #444; }

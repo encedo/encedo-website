@@ -58,9 +58,9 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 				if (!o[this.name].push) {
 					o[this.name] = [o[this.name]];
 				}
-				if(this.value) o[this.name].push(this.value);
+				o[this.name].push(this.value || false);
 			} else {
-				if(this.value) o[this.name] = this.value;
+				o[this.name] = this.value || false;
 			}
 		});
 		var error = false;
@@ -204,15 +204,11 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 		var app = this;
 		
 		app.timenow = '02.06.2014 20:00:00';
-		app.version = '';
+		app.version = '0.12.67';
 		app.status = 'offline';
 		app.location = settings.location;
 		app.encedoInfo = false;
 		app.args = false;
-		
-		if(app.location.indexOf('encedo.com') != -1) {
-			app.location = '//encedokey.com';
-		}
 		
 		var args = document.location.href.split('?');
 		var actualURL = args[0].split('#');
@@ -259,7 +255,6 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 			$(this).find('.submit').trigger('click');
 		});
 		
-		var ownerDOM = prot.find('div.owner');
 		var timenowDOM = prot.find('div.datenow');
 		var statusDOM = prot.find('div.status');
 		var versionDOM = prot.find('div.version');
@@ -294,7 +289,7 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 			statusDOM.html(status);
 		}
 		
-		app.api = function(url, func, method, givenObj, timeoutA) {
+		app.sendToEncedo = function(url, func, method, arg, givenObj, timeoutA) {
 		
 			if(app.location == 'localhost') var t = 'localhost.encedo.com';
 			else t = app.location;
@@ -303,12 +298,16 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 				url = (sll ? 'https' : 'http') + '://'+t+':' + '/' + url;
 			}
 			
+			if(arg) var prepareData = JSON.stringify({ 'timeout': (timeoutA ? timeoutA : 5000), 'arg': (givenObj ? Mustache.render(arg, givenObj) : arg) });
+			else var prepareData = false;
+			
 			$.ajax({
-				type: (method ? method : 'GET'),
+				type: (method ? method : 'POST'),
 				url: url,
 				dataType: 'json',
 				contentType: 'application/json; charset=utf-8',
-				data: JSON.stringify(givenObj),
+				data: prepareData,
+				//headers: {Connection: close},
 				
 				success: function (res) {	
 					func('success', res);
@@ -327,12 +326,78 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 			app.setStatus(status);
 			middleware = middle;
 			sll = issll;
+			setTimeout( function() { app.connect(func); } , 1);
+		}
+		
+		app.connectMiddleware = function(func) {
+		
+			app.setStatus('offline');
+			
+			app.sendToEncedo('https://'+app.location+'/stats/info', function(status, res) {
+				if('success' == status) setPoint('online sll', res, true, func);
+				else {
+					app.sendToEncedo('http://'+app.location+'/stats/info', function(status, res) {
+						if('success' == status) setPoint('online nosll', res, false, func);
+						else {
+							app.sendToEncedo('http://'+app.location+'/stats/info', function(status, res) {
+								if('success' == status) setPoint('online nosll', res, false, func);
+								else {
+									app.sendToEncedo('https://'+app.location+'/stats/info', function(status, res) {
+										if('success' == status) setPoint('online sll', res, true, func);
+									}, 'GET');
+								}
+							}, 'GET');
+						}
+					}, 'GET');
+				}
+			}, 'GET');
+			
+			
+			
+		}		
+		
+		// encedo connection
+		app.connect = function(func) {
+		
+			if(app.location == 'localhost') var t = 'localhost.encedo.com';
+			else t = app.location;
+			
+			$.ajax({
+			
+				type: "POST",
+				//url: (sll ? 'https' : 'http') + '://'+t+':'+ (sll ? '60443' : '60080') + '/api/info',
+				url: (sll ? 'https' : 'http') + '://'+t+':/api/info',
+				dataType: 'json',
+				contentType: 'application/json; charset=utf-8',
+				data: JSON.stringify({ 'arg': '-J'}),
+				
+				success: function (res) {	
+					app.encedoInfo = res;
+					app.setStatus('online with encedo');
+					
+					// ustawienie zegara
+					app.sendToEncedo('api/time', function(status, res) {
+						// pobranie zegara
+						app.time();
+						if(func) func();
+						
+					}, 'POST', '-e -s ' + Math.round((new Date()).getTime() / 1000));
+					
+					if(waitFor) app.page(waitFor);
+				}, 
+				error: function(x, t, m) {
+					if(t === "timeout") console.log("got timeout");
+					app.setStatus('offline');
+				},
+				timeout: 700
+			});
 		}
 		
 		app.time = function() {
-			app.api('api/time', function(status, res){
+		
+			app.sendToEncedo('api/time', function(status, res){
+			}, 'POST', '-J');
 			
-			});
 		}
 		
 		// forcing disconnecting with device
@@ -470,7 +535,10 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 		menuClose.click( function(ev) { ev.preventDefault( ); menuDOM.addClass('hide'); } );
 		
 		// creating UI running elements
-		versionDOM.html(app.version);
+		versionDOM.html('v' + app.version);
+		
+		// connecting to Middleware
+		app.connectMiddleware();
 		
 		// opening default page at start
 		setTimeout( function() { 
@@ -492,7 +560,7 @@ String.prototype.replaceAll = function( token, newToken, ignoreCase ) {
 	$.fn.encedoApp.defaults = {
 		'start': 'start',
 		'setupPage': 'setup',
-		'location': 'encedokey.com'
+		'location': 'my.encedo.com'
 	}
 	
 	$.fn.collection = function(settings) {

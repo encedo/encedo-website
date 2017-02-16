@@ -1,0 +1,13 @@
+RewriteEngine on
+RewriteRule ^$ index.php [L]
+RewriteRule ^index.html$ index.php [L]
+RewriteRule ^kariera.html$ kariera.php [L]
+RewriteRule ^oferta.html$ oferta.php [L]
+RewriteRule ^kontakt.html$ kontakt.php [L]
+RewriteRule ^wyslij.html$ api/wyslij.php [L]
+RewriteRule ^oferta-([0-9]+)-([-a-zA-Z0-9_]+).html(/*)$ ofertap.php?id=$1 [L]
+RewriteRule ^portfolio-([0-9]+)-([-a-zA-Z0-9_]+).html(/*)$ projekt.php?id=$1 [L]
+RewriteRule ^(.*).html$ 404.php [L]
+
+
+#RewriteEngine off
