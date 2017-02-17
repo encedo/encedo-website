@@ -1,7 +1,0 @@
-RewriteEngine on
-RewriteRule ^$ index.php?page=index [L]
-RewriteRule ^([a-zA-Z0-9_]+).html$ index.php?page=$1 [L]
-RewriteRule ^([a-zA-Z0-9_]+)$ index.php?page=404 [L]
-#RewriteEngine off
-
-errordocument 404 /index.php?page=404

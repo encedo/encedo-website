@@ -1,1 +1,0 @@
-;angular.module("dbnext-theme",["platform"]).config(["ebThemingProvider",function(a){}]).run(function(){});
