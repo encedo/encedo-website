@@ -136,9 +136,7 @@
 				<br><br>
 			</section>
 			
-			<section data-speed="12" data-default-position="-5" class="big clearfix bgr-17" style="position: relative;">
-			
-				<div class="whiteElement"></div>
+			<section data-speed="12" data-default-position="-5" class="big clearfix" style="position: relative;">
 			
 				<section class="big padded7p filter-gradient blue">
 			
