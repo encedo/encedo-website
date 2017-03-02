@@ -26,11 +26,6 @@
 		
 		<link rel="stylesheet" href="Assets/base.css?id=<?php echo md5(microtime()); ?>" media="screen" />		
 		
-		<script type="text/javascript">
-			window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
-			  heap.load("96156703");
-		</script>
-		
 </head>
 
 	<body class="loading" id="start">
@@ -103,19 +98,22 @@
 							<div class="col-1-3 element element-with-icon2 text-right">
 								<br><br>
 								<h2>Fastest</h2>
+								<p>Our solution is completely tested in data center by third party companies.</p>
 							</div><!-- col-1-4 -->
 							
-							<div class="col-1-3 element element-with-icon2 text-centered">
+							<div class="col-1-3 element element-with-icon2 text-centered hideonsmall">
 								<i class="mainicon icon icon-lock pulse"></i>
 							</div><!-- col-1-4 -->
 							
 							<div class="col-1-3 element element-with-icon2 text-left">
 								<br><br>
 								<h2>Strongest</h2>
+								<p>We designed new encryption keys that are hardest to discover.</p>
 							</div><!-- col-1-4 -->
 							
 							<div class="col-1-3 element element-with-icon2 text-centered">
 								<h2>Unbreakable</h2>
+								<p>We use elliptic curve cryptography to fight against quantum computing.</p>
 							</div><!-- col-1-4 -->
 							
 						</div><!-- grid -->
@@ -300,6 +298,11 @@
 		  ga('create', 'UA-60364487-1', 'auto');
 		  ga('send', 'pageview');
 
+		</script>
+		
+		<script type="text/javascript">
+			window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var r=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(r?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n);for(var o=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["addEventProperties","addUserProperties","clearEventProperties","identify","removeEventProperty","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=o(p[c])};
+			  heap.load("96156703");
 		</script>
 	</body>
 </html>
