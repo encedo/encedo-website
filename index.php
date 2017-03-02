@@ -55,9 +55,8 @@
 
 							<div class="col-1-1 text-centered th-black2">
 								<div >
-									
-									<br><br><br><br>
-									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span class="changableHeader" style="min-hight: 100px;">Unbreakable</span> encryption</h1>
+									<div class="spacer4"></div>
+									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span class="changableHeader">Unbreakable</span> encryption</h1>
 									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">EncedoKey works out of the box on any computer, no matther if it is Windows, Mac or Linux. Even Android and iOS are fully supported!</p>
 									<br><br>
 								</div><!-- .padded-thin -->
@@ -90,10 +89,10 @@
 
 							<div class="col-1-1 text-centered th-black2">
 								<div>
-									<br><br><br><br><br>
+									<div class="spacer4"></div>
 									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span>Encryption</span> of tomorrow</h1>
 									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">Everything, all files, all messages are encrypted with unique key on every piece of information wherever you send it or receive it . And the main key is in the vault.</p>
-									<br><br>
+									<div class="spacer2"></div>
 								</div><!-- .padded-thin -->
 							</div><!-- .col-1-1 -->
 							
@@ -123,7 +122,6 @@
 				
 				
 					</section>
-				<br>
 			</section>
 			
 			<div style="background-color: #f3f3f3">
@@ -135,7 +133,8 @@
 			
 				
 			<section id="whatisencedokey" class="clearfix bgr-light th-black padded2p">
-				<br><br><br>
+			
+				<div class="spacer5"></div>
 				
 				<div class="grid grid-pad">
 					<div class="col-1-1 text-centered">
@@ -144,9 +143,7 @@
 					</div>
 				</div>
 				
-				<br>
-				<br>
-				<br>
+				<div class="spacer3"></div>
 				
 				<div class="grid grid-pad2p">	
 					<div class="col-1-3 element element-with-icon2">
