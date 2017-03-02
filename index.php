@@ -40,7 +40,7 @@
 			<section class="big clearfix bgr-light">
 				<section class="">
 				
-					<section class="big padded2p">
+					<section class="big padded2p withMinusMargin">
 						<div class="grid grid-nopad">
 							<div class="col-1-6 text-left th-black smallclear">
 								<a href="#"><img src="Assets/img/encedokey_logo.png" alt="EncedoKey"></a>
@@ -132,13 +132,13 @@
 			
 			
 				
-			<section id="whatisencedokey" class="clearfix bgr-light th-black padded2p">
+			<section id="whatisencedokey" class="clearfix big bgr-light th-black padded2p">
 			
 				<div class="spacer5"></div>
 				
 				<div class="grid grid-pad">
 					<div class="col-1-1 text-centered">
-						<h1 style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;">Everything is encrypted</h1>
+						<h1 style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;">Everything is secured</h1>
 						<p style="max-width: 700px; text-align: center; margin: 0 auto; line-height: 1.4;">Everything - all files and messages are encrypted with unique key on every piece of information wherever you send it or receive it . And the main key is in the vault.</p>
 					</div>
 				</div>

@@ -88,7 +88,7 @@ body.loaded {  }
 .small .normalized { min-height: 87px; }
 .small .changableHeader { min-height: 44px; clear: both; display: block; }
 
-.withMinusMargin { margin-bottom: -20px; }
+.withMinusMargin { margin-bottom: -60px; }
 .mid .withMinusMargin { margin-bottom: 0px; }
 .small .withMinusMargin { margin-bottom: 0px; }
 
