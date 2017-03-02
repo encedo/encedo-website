@@ -576,6 +576,8 @@ form fieldset .correct:before { color: #226B7C; font-family: 'fontello'; speak: 
 .element:hover h2:after { left: 0%; width: 52%; }
 .element .mainicon { -webkit-transition: background-color 0.53s ease-out; -moz-transition: background-color 0.53s ease-out; -o-transition: background-color 0.53s ease-out; transition: background-color 0.53s ease-out; z-index: 2; position: relative; }
 
+#contact .element p { font-size: 14px; }
+
 body.mid .element p { font-size: 100%; }
 body.mid .element h2 { font-size: 120%; }
 body.mid .element p.small { font-size: 80%; }
@@ -2564,15 +2566,15 @@ svg#bigTriangleColor {
 	40% { transform: scale(1.08); }
 	50% { transform: scale(1); }
 	60% { transform: scale(1); }
-	65% { transform: scale(1.05); }
-	80% { transform: scale(1); }
+	65% { transform: scale(1.08); }
+	75% { transform: scale(1); }
 	100% { transform: scale(1); }
 }
 
 .pulse {
 	animation-name: pulse_animation;
-	animation-duration: 3000ms;
-	transform-origin:70% 70%;
+	animation-duration: 2500ms;
+	transform-origin: 70% 70%;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
 }

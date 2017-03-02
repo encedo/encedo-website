@@ -107,7 +107,7 @@
 							</div><!-- col-1-4 -->
 							
 							<div class="col-1-3 element element-with-icon2 text-centered">
-								<i class="mainicon icon icon-lock"></i>
+								<i class="mainicon icon icon-lock pulse"></i>
 							</div><!-- col-1-4 -->
 							
 							<div class="col-1-3 element element-with-icon2 text-left">
@@ -139,8 +139,8 @@
 				
 				<div class="grid grid-pad">
 					<div class="col-1-1 text-centered">
-						<h2>No matter what information, all goes through the vault before it goes to the cloud.<h2> 
-						<p>Everything, all files, all messages are encrypted with unique key on every piece of information wherever you send it or receive it . And the main key is in the vault.</p>
+						<h2>Everything is encrypted</h2>
+						<p>Everything - all files and messages are encrypted with unique key on every piece of information wherever you send it or receive it . And the main key is in the vault.</p>
 					</div>
 				</div>
 				
