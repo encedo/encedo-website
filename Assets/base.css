@@ -158,8 +158,8 @@ _::-moz-svg-foreign-content, :root [class*='col-'] { float: left; }
 .grid-pad1p [class*='col-'] { padding: 1%; }
 .grid-pad1p [class*='col-'] img { margin-bottom: 15px; }
 
-.grid-pad2p { padding: 1%; }
-.grid-pad2p [class*='col-'] { padding: 1%; }
+.grid-pad2p { padding: 2%; }
+.grid-pad2p [class*='col-'] { padding: 2%; }
 .grid-pad2p [class*='col-'] img { margin-bottom: 15px; }
 
 .grid-nopad { padding: 0px 0 0px 0px; }
