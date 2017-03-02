@@ -31,7 +31,7 @@
 			  heap.load("96156703");
 		</script>
 		
-	</head>
+</head>
 
 	<body class="loading" id="start">
 	
@@ -41,7 +41,7 @@
 				<section class="">
 				
 					<section class="big padded2p">
-						<div class="grid grid-nopad bgr-32">
+						<div class="grid grid-nopad">
 							<div class="col-1-6 text-left th-black smallclear">
 								<a href="#"><img src="Assets/img/encedokey_logo.png" alt="EncedoKey"></a>
 							</div><!-- .col-1-4 -->
@@ -53,19 +53,25 @@
 								</p>
 							</div><!-- .col-1-4 -->
 
-							<div class="col-1-1 text-left th-black2">
-								<div class="padded-thin">
+							<div class="col-1-1 text-centered th-black2">
+								<div >
 									
+									<br><br><br><br>
+									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span class="changableHeader" style="min-hight: 100px;">Unbreakable</span> encryption</h1>
+									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">EncedoKey works out of the box on any computer, no matther if it is Windows, Mac or Linux. Even Android and iOS are fully supported!</p>
 									<br><br>
-									<h2>Forecast for today <strong>privacy</strong>?</h2>
-									<h1 class="changableHeader" style="min-height: 129px;">Storm!</h1>
-									<p>
-										<a href="#whatisencedokey" class="button smooth">Get protected <i class="icon icon-right-small"></i></a>
-									</p>
-									<br><br><br>
 								</div><!-- .padded-thin -->
 							</div><!-- .col-1-1 -->
 						</div><!-- .grid -->
+						
+						<div class="grid grid-pad2p">	
+							
+							<div class="col-1-3 element element-with-icon2">
+								<i class="mainicon icon icon-key"></i>
+							</div><!-- col-1-4 -->
+							
+						</div><!-- grid -->				
+				
 					</section>
 					
 				</section>
@@ -77,34 +83,56 @@
 				</svg>
 			</div>
 			
-			<section id="about" class="big clearfix th-white2" style="background-color: #226B7C">
+			<section id="about" class="big clearfix th-white" style="background-color: #226B7C">
 			
-				<br>
+				<section class="big padded2p">
+						<div class="grid grid-nopad">
+
+							<div class="col-1-1 text-centered th-black2">
+								<div>
+									<br><br><br><br><br>
+									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span>Encryption</span> of tomorrow</h1>
+									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">Everything, all files, all messages are encrypted with unique key on every piece of information wherever you send it or receive it . And the main key is in the vault.</p>
+									<br><br>
+								</div><!-- .padded-thin -->
+							</div><!-- .col-1-1 -->
+							
+						</div><!-- .grid -->
+						
+						<div class="grid grid-pad2p">
+
+							<div class="col-1-3 element element-with-icon2 text-right">
+								<br><br>
+								<h2>Fastest</h2>
+							</div><!-- col-1-4 -->
+							
+							<div class="col-1-3 element element-with-icon2 text-centered">
+								<i class="mainicon icon icon-lock"></i>
+							</div><!-- col-1-4 -->
+							
+							<div class="col-1-3 element element-with-icon2 text-left">
+								<br><br>
+								<h2>Strongest</h2>
+							</div><!-- col-1-4 -->
+							
+							<div class="col-1-3 element element-with-icon2 text-centered">
+								<h2>Unbreakable</h2>
+							</div><!-- col-1-4 -->
+							
+						</div><!-- grid -->
 				
-				<div class="grid grid-pad">
 				
-					<div class="col-3-5">
-						<br><br>
-						<h2>All of us have and are using everyday keys to cars or houses. It's time to get <strong>a key to online privacy</strong>.</h2>
-						<h2>That's what EncedoKey is! </h2>
-						<h1 class="normalized">Personal Privacy Assistant</h1>
-					</div><!-- col-1-2 -->
-					
-					<div class="col-2-5 text-centered">
-						<div class="iconWrapping">
-							<i class="mainicon icon icon-very-big icon-key"></i>
-						</div><!-- .iconWrapping -->
-					</div><!-- col-1-2 -->
-					
-				</div><!-- grid -->
+					</section>
 				<br>
 			</section>
 			
-			<div style="background-color: #F2F2F2">
+			<div style="background-color: #f3f3f3">
 				<svg id="bigTriangleColor2" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 102" preserveAspectRatio="none">
 					<path d="M0 0 L50 100 L100 0 Z"></path>
 				</svg>
 			</div>
+			
+			
 				
 			<section id="whatisencedokey" class="clearfix bgr-light th-black padded2p">
 				<br>
@@ -138,12 +166,12 @@
 			
 			<section data-speed="12" data-default-position="-5" class="big clearfix" style="position: relative;">
 			
-				<section class="big padded7p filter-gradient blue">
+				<section class="big padded7p">
 			
 					<div class="grid grid-pad">
-						<div class="col-1-1 text-centered th-white3">
+						<div class="col-1-1 text-centered th-black">
 							<br>
-							<h1 class="normalized">Want to know more?</h1>
+							<h1 class="normalized">Want to be involved?</h1>
 							<p>EncedoKey is ready. Dozen of them were build and sent to our beta testers.<br>We are getting ready to make first big batch of our product.</p>
 							<form id="middle-form" class="middle-form" method="post" action="middle-form.php">
 								<div class="middle-optin">
@@ -212,7 +240,7 @@
 		
 		</div><!-- .container -->
 		
-		<script type="text/javascript" src="Assets/jquery-1.11.1.min.js"></script>	
+		<script type="text/javascript" src="Assets/jquery-1.11.1.min.js?id=234324"></script>	
 		<script type="text/javascript">
 		;(function( $ ){
 
