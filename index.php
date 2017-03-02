@@ -32,8 +32,8 @@
 	
 		<div class="container">
 
-			<section class="big clearfix bgr-light">
-				<section class="">
+			<section class="big clearfix bgr-light" style="background: url(Assets/header-bg.jpg); position: relative; z-index: 1;">
+				<section class="white-gradient">
 				
 					<section class="big padded2p withMinusMargin">
 						<div class="grid grid-nopad">
