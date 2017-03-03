@@ -3,7 +3,7 @@
 	<head>
 		<title>Encedo Limited - make privacy private again</title>
 		<meta name="title" content="Encedo Limited - make privacy private again">
-		<meta name="description" content="Encedo provides advanced, innovative and simple to use technology to help manage online privacy and local files.">
+		<meta name="description" content="Encedo provides advanced, innovative and simple to use technology to help manage online privacy.">
 		<meta name="keywords" content="cryptography, ecc, usb token, hidden volume, encrypted, flash, drive, ppa, personal, privacy, assistant">
 		<meta name="author" content="Olgroup Multimedia">
 		<meta name="copyright" content="All Rights Reserved">
