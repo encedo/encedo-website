@@ -3,7 +3,7 @@
 	<head>
 		<title>Encedo Limited - make privacy private again</title>
 		<meta name="title" content="Encedo Limited - make privacy private again">
-		<meta name="description" content="EncedoKey is simple and innovative USB device to help you manage your online privacy and local files.">
+		<meta name="description" content="Encedo provides advanced, innovative and simple to use technology to help manage online privacy and local files.">
 		<meta name="keywords" content="cryptography, ecc, usb token, hidden volume, encrypted, flash, drive, ppa, personal, privacy, assistant">
 		<meta name="author" content="Olgroup Multimedia">
 		<meta name="copyright" content="All Rights Reserved">
@@ -52,7 +52,7 @@
 								<div >
 									<div class="spacer4"></div>
 									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span class="changableHeader">Unbreakable</span> encryption</h1>
-									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">EncedoKey works out of the box on any computer, no matther if it is Windows, Mac or Linux. Even Android and iOS are fully supported!</p>
+									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">Encedo provides advanced, innovative and simple to use technology to help manage online privacy on a highest security level that future needs.</p>
 									<br><br>
 								</div><!-- .padded-thin -->
 							</div><!-- .col-1-1 -->
