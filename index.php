@@ -3,9 +3,9 @@
 	<head>
 		<title>Encedo Limited - make privacy private again</title>
 		<meta name="title" content="Encedo Limited - make privacy private again">
-		<meta name="description" content="Encedo provides advanced, innovative and simple to use technology to help manage online privacy.">
-		<meta name="keywords" content="cryptography, ecc, usb token, hidden volume, encrypted, flash, drive, ppa, personal, privacy, assistant">
-		<meta name="author" content="Olgroup Multimedia">
+		<meta name="description" content="Encedo created advanced, innovative and simple to use technology to provide online privacy.">
+		<meta name="keywords" content="cryptography, ecc, usb token, hidden volume, encrypted, flash, drive, ppa, personal, privacy, assistant, hsm">
+		<meta name="author" content="Encedo Limited">
 		<meta name="copyright" content="All Rights Reserved">
 
 		<meta name="Distribution" content="Global" />
@@ -52,7 +52,7 @@
 								<div >
 									<div class="spacer4"></div>
 									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span class="changableHeader">Unbreakable</span> encryption</h1>
-									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">Encedo provides advanced, innovative and simple to use technology to help manage online privacy on a highest security level that future needs.</p>
+									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">Encedo created advanced, innovative and simple to use technology to provide online privacy on a highest security level that future demands.</p>
 									<br><br>
 								</div><!-- .padded-thin -->
 							</div><!-- .col-1-1 -->
@@ -86,7 +86,7 @@
 								<div>
 									<div class="spacer4"></div>
 									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span>Encryption</span> of tomorrow</h1>
-									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">Everything, all files, all messages are encrypted with unique key on every piece of information wherever you send it or receive it . And the main key is in the vault.</p>
+									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">Everything, all files, all messages are encrypted with unique key on every piece of information wherever you send it or receive it. And the main key is in the vault.</p>
 									<div class="spacer2"></div>
 								</div><!-- .padded-thin -->
 							</div><!-- .col-1-1 -->
