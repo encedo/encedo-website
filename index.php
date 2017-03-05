@@ -52,7 +52,7 @@
 								<div >
 									<div class="spacer4"></div>
 									<h1 class="normalized" style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;"><span class="changableHeader">Unbreakable</span> encryption</h1>
-									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">We make businesses safe and secure. We provide technology with highest security level that is advanced, innovative and simple to use.</p>
+									<p style="max-width: 600px; text-align: center; margin: 0 auto; line-height: 1.4;">We make businesses safe and secure. We provide technology with highest security level. Advanced, innovative and simple to use solutions.</p>
 									<br><br>
 								</div><!-- .padded-thin -->
 							</div><!-- .col-1-1 -->
