@@ -137,7 +137,7 @@
 				<div class="grid grid-pad">
 					<div class="col-1-1 text-centered">
 						<h1 style="line-height: 1.0; text-transform: none !important; padding-bottom: 10px; font-weight: normal; font-size: 240% !important;">Everything is secured</h1>
-						<p style="max-width: 700px; text-align: center; margin: 0 auto; line-height: 1.4;">Everything - all files and messages are encrypted with unique key on every piece of information wherever you send it or receive it . And the main key is in the vault.</p>
+						<p style="max-width: 700px; text-align: center; margin: 0 auto; line-height: 1.4;">We provide missing connection between the convenience and the security. Transparent, easy to use and implement solutions. Highest security level that future demands.</p>
 					</div>
 				</div>
 				
